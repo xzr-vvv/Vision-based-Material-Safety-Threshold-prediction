@@ -1,0 +1,134 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="digitBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b1d4a"/>
+      <stop offset="30%" stop-color="#1e3a8a"/>
+      <stop offset="60%" stop-color="#166534"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="600" y="35" text-anchor="middle" font-size="22" font-weight="700" fill="#1f2937">RCT · 机器人采集触觉数据集</text>
+  <text x="600" y="58" text-anchor="middle" font-size="13" fill="#6b7280">机械臂 × 3 × DIGIT 传感器 · 122 种工业材料 · 力-压深标定</text>
+
+  <!-- 4 个 DIGIT 触觉图像（示意） -->
+  <g transform="translate(60, 80)">
+    <!-- Image 1: 0.0mm -->
+    <rect x="0" y="0" width="200" height="150" rx="6" fill="url(#digitBg)" stroke="#374151" stroke-width="1"/>
+    <ellipse cx="50" cy="75" rx="28" ry="22" fill="#3b82f6" opacity="0.35" filter="url(#glow)"/>
+    <ellipse cx="150" cy="60" rx="22" ry="18" fill="#ef4444" opacity="0.3" filter="url(#glow)"/>
+    <ellipse cx="100" cy="100" rx="35" ry="25" fill="#10b981" opacity="0.3" filter="url(#glow)"/>
+    <text x="100" y="175" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">Indent 0.0 mm</text>
+    <text x="100" y="198" text-anchor="middle" font-size="13" fill="#4b5563">|f<tspan baseline-shift="sub" font-size="10">z</tspan>| = 15.7 N</text>
+
+    <!-- Image 2: 0.5mm -->
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="200" height="150" rx="6" fill="url(#digitBg)" stroke="#374151" stroke-width="1"/>
+      <ellipse cx="55" cy="70" rx="32" ry="26" fill="#3b82f6" opacity="0.45" filter="url(#glow)"/>
+      <ellipse cx="145" cy="55" rx="28" ry="22" fill="#ef4444" opacity="0.4" filter="url(#glow)"/>
+      <ellipse cx="100" cy="95" rx="42" ry="32" fill="#10b981" opacity="0.4" filter="url(#glow)"/>
+      <circle cx="60" cy="80" r="6" fill="#1e3a8a" opacity="0.6"/>
+      <circle cx="135" cy="65" r="5" fill="#7f1d1d" opacity="0.6"/>
+      <text x="100" y="175" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">Indent 0.5 mm</text>
+      <text x="100" y="198" text-anchor="middle" font-size="13" fill="#4b5563">|f<tspan baseline-shift="sub" font-size="10">z</tspan>| = 16.6 N</text>
+    </g>
+
+    <!-- Image 3: 1.0mm -->
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="200" height="150" rx="6" fill="url(#digitBg)" stroke="#374151" stroke-width="1"/>
+      <ellipse cx="60" cy="65" rx="38" ry="30" fill="#3b82f6" opacity="0.55" filter="url(#glow)"/>
+      <ellipse cx="140" cy="50" rx="34" ry="28" fill="#ef4444" opacity="0.5" filter="url(#glow)"/>
+      <ellipse cx="100" cy="90" rx="50" ry="38" fill="#10b981" opacity="0.5" filter="url(#glow)"/>
+      <circle cx="68" cy="72" r="9" fill="#1e3a8a" opacity="0.7"/>
+      <circle cx="130" cy="58" r="8" fill="#7f1d1d" opacity="0.7"/>
+      <circle cx="100" cy="100" r="10" fill="#064e3b" opacity="0.5"/>
+      <text x="100" y="175" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">Indent 1.0 mm</text>
+      <text x="100" y="198" text-anchor="middle" font-size="13" fill="#4b5563">|f<tspan baseline-shift="sub" font-size="10">z</tspan>| = 19.7 N</text>
+    </g>
+
+    <!-- Image 4: 1.5mm -->
+    <g transform="translate(720, 0)">
+      <rect x="0" y="0" width="200" height="150" rx="6" fill="url(#digitBg)" stroke="#374151" stroke-width="1"/>
+      <ellipse cx="65" cy="60" rx="44" ry="35" fill="#3b82f6" opacity="0.65" filter="url(#glow)"/>
+      <ellipse cx="135" cy="45" rx="40" ry="33" fill="#ef4444" opacity="0.6" filter="url(#glow)"/>
+      <ellipse cx="100" cy="85" rx="58" ry="44" fill="#10b981" opacity="0.55" filter="url(#glow)"/>
+      <circle cx="75" cy="68" r="12" fill="#1e3a8a" opacity="0.8"/>
+      <circle cx="125" cy="52" r="11" fill="#7f1d1d" opacity="0.8"/>
+      <circle cx="100" cy="95" r="13" fill="#064e3b" opacity="0.6"/>
+      <circle cx="55" cy="90" r="7" fill="#1e3a8a" opacity="0.5"/>
+      <text x="100" y="175" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">Indent 1.5 mm</text>
+      <text x="100" y="198" text-anchor="middle" font-size="13" fill="#4b5563">|f<tspan baseline-shift="sub" font-size="10">z</tspan>| = 21.9 N</text>
+    </g>
+  </g>
+
+  <!-- 下方力-压深曲线图 -->
+  <g transform="translate(60, 320)">
+    <!-- 坐标轴 -->
+    <line x1="60" y1="0" x2="60" y2="220" stroke="#374151" stroke-width="1.5"/>
+    <line x1="60" y1="220" x2="920" y2="220" stroke="#374151" stroke-width="1.5"/>
+
+    <!-- 网格线 -->
+    <g stroke="#e5e7eb" stroke-width="1">
+      <line x1="60" y1="20" x2="920" y2="20"/>
+      <line x1="60" y1="70" x2="920" y2="70"/>
+      <line x1="60" y1="120" x2="920" y2="120"/>
+      <line x1="60" y1="170" x2="920" y2="170"/>
+    </g>
+
+    <!-- Y轴标签 |f_z| (N) -->
+    <text x="20" y="25" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle" transform="rotate(-90 20 110)">|f<tspan baseline-shift="sub" font-size="11">z</tspan>| (N)</text>
+    <text x="50" y="25" text-anchor="end" font-size="13" fill="#4b5563">22.5</text>
+    <text x="50" y="70" text-anchor="end" font-size="13" fill="#4b5563">20.0</text>
+    <text x="50" y="120" text-anchor="end" font-size="13" fill="#4b5563">17.5</text>
+    <text x="50" y="170" text-anchor="end" font-size="13" fill="#4b5563">15.0</text>
+    <text x="50" y="220" text-anchor="end" font-size="13" fill="#4b5563">12.5</text>
+
+    <!-- X轴标签 Indentation depth (mm) -->
+    <text x="490" y="255" text-anchor="middle" font-size="16" font-weight="600" fill="#1f2937">Indentation depth (mm)</text>
+    <text x="60" y="238" text-anchor="middle" font-size="13" fill="#4b5563">0.0</text>
+    <text x="222" y="238" text-anchor="middle" font-size="13" fill="#4b5563">0.2</text>
+    <text x="385" y="238" text-anchor="middle" font-size="13" fill="#4b5563">0.4</text>
+    <text x="547" y="238" text-anchor="middle" font-size="13" fill="#4b5563">0.6</text>
+    <text x="710" y="238" text-anchor="middle" font-size="13" fill="#4b5563">0.8</text>
+    <text x="872" y="238" text-anchor="middle" font-size="13" fill="#4b5563">1.0</text>
+    <text x="1000" y="238" text-anchor="middle" font-size="13" fill="#4b5563">1.2</text>
+    <text x="1060" y="238" text-anchor="middle" font-size="13" fill="#4b5563">1.4</text>
+    <text x="920" y="238" text-anchor="middle" font-size="13" fill="#4b5563">1.6</text>
+
+    <!-- 力曲线（15 个采样点，从 15.7N 升到 21.9N，非线性增长） -->
+    <!-- y = 220 - (val-12.5)/10 * 200 -->
+    <polyline fill="none" stroke="#6366f1" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"
+      points="60,156 110,158 170,148 230,142 290,136 350,134 410,132 470,124 530,114 590,112 650,96 710,104 770,82 830,64 890,54 920,46"/>
+
+    <!-- 4 个关键帧标记点（对应上方4张图） -->
+    <!-- Frame 1: 0.0mm, 15.7N -> x=60, y=156 -->
+    <line x1="60" y1="156" x2="60" y2="220" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <circle cx="60" cy="156" r="9" fill="#6366f1" stroke="white" stroke-width="2.5"/>
+    <text x="80" y="170" font-size="18" font-weight="600" fill="#374151">Frame 1</text>
+
+    <!-- Frame 2: 0.5mm, 16.6N -> x=350, y=134 -->
+    <line x1="350" y1="134" x2="350" y2="220" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <circle cx="350" cy="134" r="9" fill="#6366f1" stroke="white" stroke-width="2.5"/>
+    <text x="370" y="148" font-size="18" font-weight="600" fill="#374151">Frame 2</text>
+
+    <!-- Frame 3: 1.0mm, 19.7N -> x=770, y=82 -->
+    <line x1="770" y1="82" x2="770" y2="220" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <circle cx="770" cy="82" r="9" fill="#6366f1" stroke="white" stroke-width="2.5"/>
+    <text x="740" y="68" font-size="18" font-weight="600" fill="#374151">Frame 3</text>
+
+    <!-- Frame 4: 1.5mm, 21.9N -> x=920, y=46 -->
+    <line x1="920" y1="46" x2="920" y2="220" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <circle cx="920" cy="46" r="9" fill="#6366f1" stroke="white" stroke-width="2.5"/>
+    <text x="890" y="32" font-size="18" font-weight="600" fill="#374151">Frame 4</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="600" y="585" text-anchor="middle" font-size="11" fill="#9ca3af">
+    数据来源：RCT dataset (faerber-lab.github.io/RCT) · 7 大类 122 种材料 · 0.10 mm 步进压入 · 每帧记录 |f_z| 接触力
+  </text>
+</svg>

@@ -1,0 +1,17 @@
+# 下载数据集与第三方官方仓库（体积大，README 中已附下载链接）
+data/
+_extract/
+_extract2/
+
+# 第三方论文 PDF
+paper_*.pdf
+2608.13014v1.pdf
+
+# 模型权重（超过 GitHub 100MB 单文件限制）
+*.pth
+
+# IDE 与缓存
+.idea/
+.vscode/
+__pycache__/
+*.pyc

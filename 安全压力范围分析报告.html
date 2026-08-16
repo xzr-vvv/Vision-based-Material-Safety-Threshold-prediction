@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>机械臂抓取安全压力范围 — 6 数据集综合分析报告</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#f5f6fa; color:#1f2937; font-family:"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.6; padding:32px; }
+.container { max-width:1200px; margin:0 auto; }
+h1 { font-size:28px; color:#111827; border-bottom:3px solid #2b6cff; padding-bottom:12px; margin-bottom:8px; }
+.subtitle { color:#6b7280; font-size:14px; margin-bottom:28px; }
+h2 { font-size:20px; color:#111827; margin:32px 0 14px; border-left:4px solid #2b6cff; padding-left:12px; }
+h3 { font-size:16px; color:#1f2937; margin:18px 0 8px; }
+.card { background:#fff; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); padding:20px 22px; margin-bottom:16px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0; }
+th { background:#eef2ff; color:#1e3a8a; font-weight:600; text-align:left; padding:9px 12px; border-bottom:2px solid #c7d2fe; }
+td { padding:8px 12px; border-bottom:1px solid #e5e7eb; }
+tr:hover td { background:#f9fafb; }
+.tag { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:500; }
+.tag-rigid { background:#dbeafe; color:#1e40af; }
+.tag-soft { background:#dcfce7; color:#166534; }
+.tag-fragile { background:#fee2e2; color:#991b1b; }
+.kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:16px 0; }
+.kpi { background:linear-gradient(135deg,#2b6cff,#5b8def); color:#fff; border-radius:10px; padding:16px; text-align:center; }
+.kpi.green { background:linear-gradient(135deg,#10b981,#34d399); }
+.kpi.red { background:linear-gradient(135deg,#ef4444,#f87171); }
+.kpi.orange { background:linear-gradient(135deg,#f59e0b,#fbbf24); }
+.kpi .num { font-size:28px; font-weight:700; }
+.kpi .label { font-size:12px; opacity:.9; margin-top:4px; }
+.bar-row { display:flex; align-items:center; margin:4px 0; font-size:13px; }
+.bar-row .name { width:140px; flex-shrink:0; color:#374151; }
+.bar-row .bar-bg { flex:1; background:#e5e7eb; height:22px; border-radius:4px; position:relative; overflow:hidden; }
+.bar-row .bar { height:100%; border-radius:4px; }
+.bar-row .val { width:80px; text-align:right; font-variant-numeric:tabular-nums; color:#4b5563; flex-shrink:0; }
+.legend { display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:#4b5563; margin:10px 0 6px; }
+.legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+.warn { background:#fffbeb; border-left:3px solid #f59e0b; padding:10px 14px; border-radius:6px; font-size:13px; color:#78350f; margin:12px 0; }
+.note { background:#eff6ff; border-left:3px solid #3b82f6; padding:10px 14px; border-radius:6px; font-size:13px; color:#1e40af; margin:12px 0; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.compare-table th { text-align:center; }
+.compare-table td:first-child { font-weight:600; background:#f9fafb; }
+.compare-table td { text-align:center; }
+svg { display:block; }
+.footnote { font-size:12px; color:#6b7280; margin-top:24px; border-top:1px solid #e5e7eb; padding-top:12px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>机械臂抓取安全压力范围 — 6 数据集综合分析报告</h1>
+<div class="subtitle">数据来源：RLCL-EIT/robotics_arxiv_daily（Tactile/Visuo-Tactile 板块）· 分析日期：2026-08-15 · 全部为机械臂/机器人仿真采集</div>
+
+<!-- 总览 KPI -->
+<div class="kpi-row">
+  <div class="kpi"><div class="num">6</div><div class="label">数据集总数</div></div>
+  <div class="kpi green"><div class="num">50+</div><div class="label">有明确力/变形/损伤阈值的物体</div></div>
+  <div class="kpi orange"><div class="num">3 类</div><div class="label">物体分类：刚体 / 柔性 / 易碎</div></div>
+  <div class="kpi red"><div class="num">10 N</div><div class="label">最易碎物体损伤阈值（鸡蛋）</div></div>
+</div>
+
+<!-- 总览对比表 -->
+<h2>一、数据集总览对比</h2>
+<div class="card">
+<table class="compare-table">
+<thead>
+<tr><th>数据集</th><th>类别</th><th>采集方式</th><th>触觉传感器</th><th>数据量</th><th>安全指标类型</th><th>数据状态</th></tr>
+</thead>
+<tbody>
+<tr><td>RCT</td><td><span class="tag tag-rigid">刚体</span></td><td>机械臂按压</td><td>DIGIT ×3</td><td>29,279 帧 / 122 材料</td><td>力-压深标定曲线</td><td>9.23GB 需浏览器下载</td></tr>
+<tr><td>T-Rex</td><td><span class="tag tag-rigid">刚体</span></td><td>双臂灵巧手遥操作</td><td>图像式触觉 ×10 指尖</td><td>5464 集 / 547 万帧</td><td>6 维指尖力/力矩分布</td><td>2 分块已下载（137MB）</td></tr>
+<tr><td>Deform360</td><td><span class="tag tag-soft">柔性</span></td><td>双臂触觉夹爪</td><td>16×32 阵列 ×4 路</td><td>198 物体 / 1980 交互</td><td>触觉压力阵列时空分布</td><td>2 物体触觉流已下载</td></tr>
+<tr><td>SoftVTBench</td><td><span class="tag tag-soft">柔性</span></td><td>仿真机械臂夹爪</td><td>视触觉（FEM 仿真）</td><td>1628 演示 / 20 任务</td><td>ε 安全变形阈值 + Safety Success</td><td>元数据+演示已下载</td></tr>
+<tr><td>OopsieVerse</td><td><span class="tag tag-fragile">易碎</span></td><td>仿真机械臂</td><td>力觉（DamageSim 损伤模型）</td><td>54 安全/不安全演示</td><td>损伤阈值 damage_threshold + 健康值</td><td>全部演示已下载</td></tr>
+<tr><td>Tabero</td><td><span class="tag tag-fragile">易碎</span></td><td>Franka 机械臂仿真</td><td>GelSight 类视触觉</td><td>40 装配演示</td><td>轻柔握力降低 70%+</td><td>全部演示已下载</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- 刚体类分析 -->
+<h2>二、硬的刚体 — 安全接触力分析</h2>
+
+<div class="grid-2">
+<div class="card">
+<h3>RCT：122 种工业材料力-压深标定</h3>
+<p style="font-size:13.5px;color:#374151;margin-bottom:12px;">
+机械臂携带 3 个 DIGIT 触觉传感器，对 7 大类 122 种工业参考材料进行压入实验，
+0.10 mm 步进，每帧记录接触力 |f<sub>z</sub>| 与压入深度，是研究"不同材料安全接触力"的标定级基准。
+</p>
+<table>
+<thead><tr><th>材料大类</th><th>数量</th><th>典型物体</th></tr></thead>
+<tbody>
+<tr><td>塑料 / 橡胶</td><td>33</td><td>PE、PP、PVC、硅胶、橡胶等</td></tr>
+<tr><td>纸 / 纸板</td><td>45</td><td>瓦楞纸、卡纸、纸巾、海绵纸</td></tr>
+<tr><td>金属</td><td>20</td><td>铝、钢、铜、黄铜、不锈钢</td></tr>
+<tr><td>纺织 / 皮革</td><td>10</td><td>棉布、涤纶、毛毡、皮革</td></tr>
+<tr><td>木 / 竹 / 软木</td><td>7</td><td>橡木、胶合板、竹、软木塞</td></tr>
+<tr><td>工艺 / 其他</td><td>7</td><td>泡沫、毛球、小零件等</td></tr>
+</tbody>
+</table>
+<div class="note">关键价值：提供"力—压深—材料"三要素一一对应的数据，可直接提取不同材料的屈服力（安全力上限）。数据本体 9.23 GB，figshare 直链见下载说明。</div>
+</div>
+
+<div class="card">
+<h3>T-Rex：10 指尖 6 维力/力矩统计分布</h3>
+<p style="font-size:13.5px;color:#374151;margin-bottom:12px;">
+双臂灵巧手 5464 集操作（200+ 刚体为主），每个指尖触觉流含估计的 6 维 wrench（3 力 + 3 力矩）。
+以下为全数据集 tactile_force 的统计（力单位：N，力矩单位：N·m）。
+</p>
+
+<div class="legend">
+<span style="color:#1f2937">— 各指尖法向力 Fz 范围（min ~ max）—</span>
+</div>
+
+<div style="margin-top:8px;">
+<div class="bar-row"><span class="name">左手拇指</span><div class="bar-bg"><div class="bar" style="width:45%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div><span class="val">-17.5 ~ 14.5 N</span></div>
+<div class="bar-row"><span class="name">左手指尖2</span><div class="bar-bg"><div class="bar" style="width:70%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div><span class="val">-2.9 ~ 33.4 N</span></div>
+<div class="bar-row"><span class="name">左手指尖3</span><div class="bar-bg"><div class="bar" style="width:85%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div><span class="val">-3.0 ~ 44.4 N</span></div>
+<div class="bar-row"><span class="name">右手拇指</span><div class="bar-bg"><div class="bar" style="width:55%;background:linear-gradient(90deg,#34d399,#10b981)"></div></div><span class="val">-13.7 ~ 12.8 N</span></div>
+<div class="bar-row"><span class="name">右手指尖2</span><div class="bar-bg"><div class="bar" style="width:60%;background:linear-gradient(90deg,#34d399,#10b981)"></div></div><span class="val">-2.5 ~ 25.1 N</span></div>
+<div class="bar-row"><span class="name">右手指尖3</span><div class="bar-bg"><div class="bar" style="width:75%;background:linear-gradient(90deg,#34d399,#10b981)"></div></div><span class="val">-0.8 ~ 33.3 N</span></div>
+</div>
+
+<div class="warn" style="margin-top:14px;">
+注意：T-Rex 力值范围广（0 ~ 44 N），因为含敲击、推挤等任务。抓取操作的典型力值集中在 q50 ≈ 1.5 ~ 2.9 N、q90 ≈ 4.7 ~ 6.2 N。
+力矩分量普遍 &lt; 0.3 N·m。
+</div>
+</div>
+</div>
+
+<!-- 柔性类分析 -->
+<h2>三、柔性物体 — 安全变形阈值分析</h2>
+
+<div class="card">
+<h3>SoftVTBench：显式 ε 安全变形阈值（最直接的"安全范围"数据）</h3>
+<p style="font-size:13.5px;color:#374151;margin-bottom:12px;">
+每个柔性物体通过 FEM 仿真标定 <b>d<sub>safe</sub></b>（安全变形上限），变形量低于此值为安全、高于此值为过度变形（即损伤）。
+同时给出 mean / p90 / max 变形量分布，以及 over（超限次数）。
+</p>
+
+<table>
+<thead>
+<tr><th>物体</th><th>类型</th><th>d_safe 安全阈值</th><th>mean 变形</th><th>p90 变形</th><th>max 变形</th><th>超限次数/100</th></tr>
+</thead>
+<tbody>
+<tr><td>stw_cube_hq</td><td><span class="tag tag-rigid">刚体对照</span></td><td><b>0.1571</b></td><td>0.304</td><td>0.416</td><td>0.464</td><td style="color:#dc2626">96</td></tr>
+<tr><td>pastry005</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.1367</b></td><td>0.414</td><td>0.468</td><td>0.482</td><td style="color:#dc2626">100</td></tr>
+<tr><td>pastry001</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.1248</b></td><td>0.281</td><td>0.364</td><td>0.394</td><td style="color:#dc2626">99</td></tr>
+<tr><td>stw_cylinder_hq</td><td><span class="tag tag-rigid">刚体对照</span></td><td><b>0.0834</b></td><td>0.324</td><td>0.448</td><td>0.507</td><td style="color:#dc2626">100</td></tr>
+<tr><td>pastry011</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.0589</b></td><td>0.230</td><td>0.273</td><td>0.305</td><td style="color:#dc2626">100</td></tr>
+<tr><td>pastry010</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.0502</b></td><td>0.289</td><td>0.384</td><td>0.419</td><td style="color:#dc2626">100</td></tr>
+<tr><td>pastry002</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.0711</b></td><td>0.445</td><td>0.477</td><td>0.539</td><td style="color:#dc2626">100</td></tr>
+<tr><td>pastry003</td><td><span class="tag tag-soft">软糕点</span></td><td><b>0.0406</b></td><td>0.267</td><td>0.324</td><td>0.341</td><td style="color:#dc2626">100</td></tr>
+<tr><td>stw_sphere_hq</td><td><span class="tag tag-rigid">刚体对照</span></td><td><b>0.0355</b></td><td>0.262</td><td>0.413</td><td>0.457</td><td style="color:#dc2626">100</td></tr>
+<tr><td>stw_cuboid_hq</td><td><span class="tag tag-rigid">刚体对照</span></td><td>—</td><td>0.230</td><td>0.318</td><td>0.348</td><td>—</td></tr>
+</tbody>
+</table>
+
+<div class="grid-2" style="margin-top:14px;">
+<div>
+<div class="kpi-row" style="grid-template-columns:1fr 1fr;">
+<div class="kpi green" style="padding:12px;"><div class="num" style="font-size:22px;">100%</div><div class="label">刚体组成功率</div></div>
+<div class="kpi orange" style="padding:12px;"><div class="num" style="font-size:22px;">75.6%</div><div class="label">柔性组成功率</div></div>
+</div>
+</div>
+<div style="font-size:13px;color:#374151;">
+<p style="margin-bottom:6px;"><b>关键发现：</b></p>
+<ul style="padding-left:18px;">
+<li>刚体组 1000/1000 演示全成功，柔性组有 244 条失败（多因过度变形）</li>
+<li>即使是"刚体"形状，在夹爪接触处也有 0.03 ~ 0.16 的形变（接触面局部变形）</li>
+<li>pastry 系列（软糕点）d_safe 范围 0.04 ~ 0.14，是研究软体抓取安全压力的直接参照</li>
+<li>96%~100% 的演示中变形量超过 d_safe——说明当前策略普遍偏"用力过猛"</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:16px;">
+<h3>Deform360：绳/布真实机械臂触觉压力阵列</h3>
+<div class="grid-2">
+<div>
+<p style="font-size:13.5px;color:#374151;margin-bottom:10px;">
+双臂 UMI 触觉夹爪，每只夹爪 2 个 16×32 压力阵列（共 4 路），
+对绳、布等 13 类 198 个可变形物体进行操作。
+</p>
+<table>
+<thead><tr><th>物体</th><th>片段数</th><th>总帧数（左夹爪）</th><th>平均时长</th><th>采样率</th></tr></thead>
+<tbody>
+<tr><td>001-rope（绳）</td><td>10</td><td>~2660 帧/传感器</td><td>~9.0 s</td><td>~30 FPS</td></tr>
+<tr><td>008-pink-cloth（粉布）</td><td>10</td><td>~4155 帧/传感器</td><td>~14.0 s</td><td>~30 FPS</td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:10px;">
+触觉数据为 16×32 浮点阵列（每帧 512 个压力值），含同步的 .flac 触觉音频。
+完整 198 物体数据量达 TB 级，可用 CLI 按需下载：<code>deform360-download --objects ...</code>
+</div>
+</div>
+<div>
+<p style="font-size:13.5px;color:#374151;margin-bottom:8px;"><b>压力阵列规格：</b></p>
+<ul style="font-size:13px;color:#374151;padding-left:20px;line-height:1.9;">
+<li>阵列大小：16 × 32 = 512 传感单元</li>
+<li>每夹爪传感器数量：2 个（左右各一，覆盖指面）</li>
+<li>双臂总计：4 路触觉流同步</li>
+<li>采集频率：约 30 Hz（与 41 路视频同步）</li>
+<li>数据格式：.npy 原始阵列 + .txt 时间戳</li>
+<li>配套：触觉 WAV/FLAC 音频（接触振动）</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- 易碎类分析 -->
+<h2>四、易碎物品 — 损伤力阈值分析</h2>
+
+<div class="card">
+<h3>OopsieVerse：30+ 物体机械损伤阈值（DamageSim）</h3>
+<p style="font-size:13.5px;color:#374151;margin-bottom:12px;">
+DamageSim 将接触力（冲击 + 准静态）转化为可量化的"损伤"与"健康值（health）"。
+每个物体标定 <b>damage_threshold</b>（损伤阈值，单位：相对力），超过即累积损伤。
+<b>数值越低 = 越易碎</b>。按易碎程度排序如下（选取代表性物体）：
+</p>
+
+<h4 style="font-size:14px;color:#991b1b;margin:10px 0 6px;">▎极易碎（阈值 10 ~ 20）</h4>
+<div class="bar-row"><span class="name">鸡蛋 egg</span><div class="bar-bg"><div class="bar" style="width:4%;background:#ef4444"></div></div><span class="val">10</span></div>
+<div class="bar-row"><span class="name">酒杯 wineglass</span><div class="bar-bg"><div class="bar" style="width:6%;background:#ef4444"></div></div><span class="val">15</span></div>
+<div class="bar-row"><span class="name">啤酒瓶 beer</span><div class="bar-bg"><div class="bar" style="width:6%;background:#ef4444"></div></div><span class="val">15</span></div>
+<div class="bar-row"><span class="name">纸杯蛋糕 cupcake</span><div class="bar-bg"><div class="bar" style="width:8%;background:#f59e0b"></div></div><span class="val">20</span></div>
+
+<h4 style="font-size:14px;color:#b45309;margin:14px 0 6px;">▎较易碎（阈值 40 ~ 80）</h4>
+<div class="bar-row"><span class="name">镜子 mirror</span><div class="bar-bg"><div class="bar" style="width:16%;background:#f59e0b"></div></div><span class="val">40</span></div>
+<div class="bar-row"><span class="name">盘子 plate</span><div class="bar-bg"><div class="bar" style="width:16%;background:#f59e0b"></div></div><span class="val">40</span></div>
+<div class="bar-row"><span class="name">碗 bowl</span><div class="bar-bg"><div class="bar" style="width:16%;background:#f59e0b"></div></div><span class="val">40</span></div>
+<div class="bar-row"><span class="name">酒瓶 wine</span><div class="bar-bg"><div class="bar" style="width:20%;background:#f59e0b"></div></div><span class="val">50</span></div>
+<div class="bar-row"><span class="name">花瓶 vase</span><div class="bar-bg"><div class="bar" style="width:20%;background:#f59e0b"></div></div><span class="val">50</span></div>
+<div class="bar-row"><span class="name">水杯 water_glass</span><div class="bar-bg"><div class="bar" style="width:20%;background:#f59e0b"></div></div><span class="val">50</span></div>
+<div class="bar-row"><span class="name">数码相机</span><div class="bar-bg"><div class="bar" style="width:24%;background:#f59e0b"></div></div><span class="val">60</span></div>
+<div class="bar-row"><span class="name">笔记本电脑</span><div class="bar-bg"><div class="bar" style="width:32%;background:#f59e0b"></div></div><span class="val">80</span></div>
+<div class="bar-row"><span class="name">电视 / 音箱</span><div class="bar-bg"><div class="bar" style="width:32%;background:#f59e0b"></div></div><span class="val">80</span></div>
+
+<h4 style="font-size:14px;color:#166534;margin:14px 0 6px;">▎中等坚固（阈值 100 ~ 300）</h4>
+<div class="bar-row"><span class="name">微波炉</span><div class="bar-bg"><div class="bar" style="width:60%;background:#10b981"></div></div><span class="val">300（整体）</span></div>
+<div class="bar-row"><span class="name">相机三脚架</span><div class="bar-bg"><div class="bar" style="width:60%;background:#10b981"></div></div><span class="val">150</span></div>
+<div class="bar-row"><span class="name">门 door</span><div class="bar-bg"><div class="bar" style="width:60%;background:#10b981"></div></div><span class="val">300</span></div>
+
+<h4 style="font-size:14px;color:#1e3a8a;margin:14px 0 6px;">▎坚固（阈值 500 ~ 1000）</h4>
+<div class="bar-row"><span class="name">易拉罐 can</span><div class="bar-bg"><div class="bar" style="width:100%;background:#3b82f6"></div></div><span class="val">500</span></div>
+<div class="bar-row"><span class="name">炉子 / 床 / 沙发</span><div class="bar-bg"><div class="bar" style="width:100%;background:#3b82f6"></div></div><span class="val">500</span></div>
+<div class="bar-row"><span class="name">书本 book</span><div class="bar-bg"><div class="bar" style="width:100%;background:#3b82f6"></div></div><span class="val">1000</span></div>
+
+<div class="warn" style="margin-top:14px;">
+注意：damage_threshold 为仿真相对力单位，非真实牛顿。但相对排序和比例关系（鸡蛋 : 酒瓶 : 书本 ≈ 1 : 5 : 100）具有物理意义，
+可用于标定安全抓取力的相对比例。54 条安全/不安全演示（含抓鸡蛋、放盘子等）已全部下载，可直接用于训练/验证安全抓取策略。
+</div>
+</div>
+
+<div class="card">
+<h3>Tabero：语言条件化的轻柔握力控制</h3>
+<div class="grid-2">
+<div>
+<p style="font-size:13.5px;color:#374151;margin-bottom:10px;">
+Franka 机械臂 + 视触觉夹爪，通过"力-位解耦"指令接口实现实时力反馈控制。
+核心结果：在"轻柔（gentle）"语言指令下，平均握力<b>降低 70% 以上</b>，同时保持高任务成功率。
+</p>
+<div class="kpi-row" style="grid-template-columns:1fr 1fr;">
+<div class="kpi green" style="padding:14px;"><div class="num" style="font-size:24px;">70%+</div><div class="label">握力降低幅度（轻柔模式）</div></div>
+<div class="kpi" style="padding:14px;"><div class="num" style="font-size:24px;">力-位解耦</div><div class="label">控制接口设计</div></div>
+</div>
+</div>
+<div>
+<p style="font-size:13.5px;color:#374151;margin-bottom:8px;"><b>评价维度（同时度量）：</b></p>
+<ul style="font-size:13px;color:#374151;padding-left:20px;line-height:1.9;">
+<li>任务成功率（Goal Success）</li>
+<li>物理交互质量（含握力大小）</li>
+<li>力控稳定性 / 超调量</li>
+<li>语言指令跟随（轻柔 vs 牢固）</li>
+</ul>
+<p style="font-size:13px;color:#374151;margin-top:10px;">
+配套资产：Franka + GelSight Mini 视触觉 USD 仿真资产（120.8 MB），可复现触觉仿真。
+</p>
+</div>
+</div>
+</div>
+
+<!-- 跨类别对比 -->
+<h2>五、跨类别综合对比与参考结论</h2>
+
+<div class="card">
+<h3>三类物体安全压力/力范围量级对比</h3>
+<table class="compare-table">
+<thead>
+<tr><th>类别</th><th>代表物体</th><th>安全力/变形阈值量级</th><th>数据来源</th><th>典型应用场景</th></tr>
+</thead>
+<tbody>
+<tr style="background:#eff6ff;">
+<td><span class="tag tag-rigid">刚体</span></td>
+<td>金属、塑料、纸板</td>
+<td><b>几 N ~ 几十 N</b><br/>（T-Rex 抓取 q90 ≈ 5~7 N）</td>
+<td>RCT（标定）、T-Rex（实测）</td>
+<td>工业装配、仓储分拣</td>
+</tr>
+<tr style="background:#f0fdf4;">
+<td><span class="tag tag-soft">柔性</span></td>
+<td>糕点、布料、绳</td>
+<td><b>形变 d_safe ≈ 0.04 ~ 0.16</b><br/>（SoftVTBench 相对变形单位）</td>
+<td>SoftVTBench、Deform360</td>
+<td>食品抓取、布料操作</td>
+</tr>
+<tr style="background:#fef2f2;">
+<td><span class="tag tag-fragile">易碎</span></td>
+<td>鸡蛋、酒杯、镜片</td>
+<td><b>鸡蛋 ≈ 10（相对单位）</b><br/>（为书本的 1/100）</td>
+<td>OopsieVerse、Tabero</td>
+<td>家庭服务、实验室操作</td>
+</tr>
+</tbody>
+</table>
+
+<div class="grid-2" style="margin-top:16px;">
+<div>
+<h4>各数据集互补性</h4>
+<ul style="font-size:13px;color:#374151;padding-left:20px;line-height:1.9;">
+<li><b>RCT</b>：提供材料级力-压深标定，是"不同材料安全力"的基础参照</li>
+<li><b>T-Rex</b>：提供真实灵巧手操作的力流分布，是实际抓取力的统计参照</li>
+<li><b>SoftVTBench</b>：唯一显式定义"安全变形阈值 d_safe"的基准</li>
+<li><b>Deform360</b>：真实双臂触觉夹爪的大规模压力阵列数据</li>
+<li><b>OopsieVerse</b>：唯一量化"损伤"与健康值的基准，30+ 物体完整参数</li>
+<li><b>Tabero</b>：展示语言条件下的力控降低幅度（70%+）与轻柔操作范式</li>
+</ul>
+</div>
+<div>
+<h4>研究建议路径</h4>
+<ol style="font-size:13px;color:#374151;padding-left:20px;line-height:1.9;">
+<li>先用 SoftVTBench 的 d_safe 建立"安全抓取"的量化定义</li>
+<li>用 RCT 的材料-力数据扩展刚体安全力范围</li>
+<li>用 OopsieVerse 的 damage_params 标定易碎品损伤阈值</li>
+<li>用 Deform360 的真实触觉阵列验证仿真→真实迁移</li>
+<li>用 T-Rex 的大规模灵巧手数据训练力控策略</li>
+<li>用 Tabero 的力-位解耦框架实现实时闭环控制</li>
+</ol>
+</div>
+</div>
+</div>
+
+<!-- 数据可用性 -->
+<h2>六、数据完整性与获取说明</h2>
+<div class="card">
+<table>
+<thead><tr><th>数据集</th><th>本地已下载</th><th>总数据量</th><th>完整获取方式</th></tr></thead>
+<tbody>
+<tr><td>RCT</td><td>代码 + 论文 + 下载说明</td><td>9.23 GB（zip）</td><td>figshare 直链（需浏览器，见 01_刚体_RCT\数据集下载说明.txt）</td></tr>
+<tr><td>T-Rex</td><td>代码 + 2 个 parquet 分块（137MB）+ 元数据</td><td>3.06 GB / 48 分块</td><td><code>huggingface-cli download zekaiwang/trex_dataset --repo-type dataset</code></td></tr>
+<tr><td>Deform360</td><td>2 物体触觉流（绳+布）+ 代码</td><td>数 TB</td><td><code>deform360-download --objects [id1] [id2]</code></td></tr>
+<tr><td>SoftVTBench</td><td>元数据 + ε 阈值 + 2 条完整演示</td><td>数十 GB</td><td>HF: Arthur12137/SoftVTBench（ModelScope 有国内镜像）</td></tr>
+<tr><td>OopsieVerse</td><td>全部 54 条演示 + 完整代码 + 损伤参数</td><td>330 MB</td><td>已全部下载 ✓</td></tr>
+<tr><td>Tabero</td><td>全部 40 演示 + 触觉仿真资产 + 代码</td><td>~170 MB</td><td>已全部下载 ✓</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="footnote">
+报告生成时间：2026-08-15 · 数据根目录：E:\A-触觉机器学习\ · 所有数据与分析输出均存储在 E 盘，未向 C 盘安装任何软件或写入数据文件。<br/>
+数据来源：各数据集官方仓库与论文，详细链接见各子目录 README。
+</div>
+
+</div>
+</body>
+</html>

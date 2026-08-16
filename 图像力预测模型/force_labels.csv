@@ -1,0 +1,7 @@
+class_name,class_name_cn,min_grasp_force_N,max_safe_force_N,safe_range_N
+metal,金属刚体,2.0,20.0,18.0
+hard_plastic,硬塑料,1.5,15.0,13.5
+wood_paper,木材纸板,1.0,12.0,11.0
+leather_textile,皮革织物,0.8,8.0,7.2
+foam_soft,软质泡沫,0.3,4.0,3.7
+fragile_glass,玻璃陶瓷易碎品,0.5,2.5,2.0

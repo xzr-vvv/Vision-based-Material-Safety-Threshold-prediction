@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>6 数据集可视化图集 · 机械臂抓取安全压力范围</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#f8fafc; color:#1f2937; font-family:"Segoe UI","Microsoft YaHei",sans-serif; padding:32px; }
+h1 { font-size:26px; color:#111827; text-align:center; margin-bottom:6px; }
+.subtitle { text-align:center; color:#6b7280; font-size:14px; margin-bottom:32px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1400px; margin:0 auto; }
+.card { background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.08); overflow:hidden; transition:transform .2s, box-shadow .2s; }
+.card:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.12); }
+.card .img-wrap { width:100%; aspect-ratio:2/1; background:#f1f5f9; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.card .img-wrap img { width:100%; height:100%; object-fit:contain; }
+.card .meta { padding:16px 20px; }
+.card h3 { font-size:17px; color:#111827; margin-bottom:4px; }
+.card .tag { display:inline-block; padding:2px 10px; border-radius:12px; font-size:11px; font-weight:500; margin-right:6px; }
+.tag-rigid { background:#dbeafe; color:#1e40af; }
+.tag-soft { background:#dcfce7; color:#166534; }
+.tag-fragile { background:#fee2e2; color:#991b1b; }
+.card p { font-size:13px; color:#4b5563; margin-top:8px; line-height:1.6; }
+.card a { display:inline-block; margin-top:10px; color:#2b6cff; font-size:13px; text-decoration:none; font-weight:500; }
+.card a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<h1>机械臂抓取安全压力范围 · 6 数据集可视化图集</h1>
+<div class="subtitle">RCT / T-Rex / Deform360 / SoftVTBench / OopsieVerse / Tabero</div>
+
+<div class="grid">
+
+<div class="card">
+  <div class="img-wrap"><img src="01_RCT_力压深曲线.svg" alt="RCT"></div>
+  <div class="meta">
+    <span class="tag tag-rigid">刚体</span>
+    <h3>01 · RCT 力-压深曲线</h3>
+    <p>机械臂 × DIGIT 触觉传感器，4 个压入深度的接触图像与 |f_z| 力曲线示意。122 种工业材料，0.10 mm 步进标定。</p>
+    <a href="01_RCT_力压深曲线.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="img-wrap"><img src="02_T-Rex_指尖力分布.svg" alt="T-Rex"></div>
+  <div class="meta">
+    <span class="tag tag-rigid">刚体</span>
+    <h3>02 · T-Rex 10 指尖力分布</h3>
+    <p>双臂灵巧手 10 个触觉指尖的法向力 Fz 范围统计，左右手分列，含中位数与 min~max 全范围。</p>
+    <a href="02_T-Rex_指尖力分布.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="img-wrap"><img src="03_Deform360_触觉压力阵列.svg" alt="Deform360"></div>
+  <div class="meta">
+    <span class="tag tag-soft">柔性</span>
+    <h3>03 · Deform360 触觉压力阵列</h3>
+    <p>16×32 触觉阵列示意 + 绳/布两类柔性物体抓取过程压力均值时间序列对比（接近→握持→释放）。</p>
+    <a href="03_Deform360_触觉压力阵列.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="img-wrap"><img src="04_SoftVTBench_安全变形阈值.svg" alt="SoftVTBench"></div>
+  <div class="meta">
+    <span class="tag tag-soft">柔性</span>
+    <h3>04 · SoftVTBench 安全变形阈值</h3>
+    <p>10 个物体的 d_safe 安全阈值 vs p90 实际变形量对比。唯一显式定义"安全变形上限"的视触觉基准。</p>
+    <a href="04_SoftVTBench_安全变形阈值.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="img-wrap"><img src="05_OopsieVerse_损伤阈值排行.svg" alt="OopsieVerse"></div>
+  <div class="meta">
+    <span class="tag tag-fragile">易碎</span>
+    <h3>05 · OopsieVerse 损伤阈值排行</h3>
+    <p>30+ 物体 damage_threshold 从鸡蛋(10)到书本(1000)的完整排行。4 个易碎等级，直观对比不同物体脆弱程度。</p>
+    <a href="05_OopsieVerse_损伤阈值排行.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="img-wrap"><img src="06_Tabero_轻柔握力对比.svg" alt="Tabero"></div>
+  <div class="meta">
+    <span class="tag tag-fragile">易碎</span>
+    <h3>06 · Tabero 轻柔握力对比</h3>
+    <p>力-位解耦控制架构 + 牢固/轻柔两种模式下握力包络对比。轻柔模式握力平均降低 70%+。</p>
+    <a href="06_Tabero_轻柔握力对比.svg" target="_blank">查看大图 →</a>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

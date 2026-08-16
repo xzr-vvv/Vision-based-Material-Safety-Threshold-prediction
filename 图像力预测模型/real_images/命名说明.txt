@@ -1,0 +1,15 @@
+真实图片命名说明
+==================
+1. 把你拍的物体照片放进这个文件夹（jpg / png 都可以）
+2. 文件名里必须包含真实类别的英文名，否则不计入准确率统计：
+   metal           金属刚体        例: metal_wrench.jpg
+   hard_plastic    硬塑料          例: hard_plastic_ruler.jpg
+   wood_paper      木材纸板        例: wood_paper_box.jpg
+   leather_textile 皮革织物        例: leather_textile_glove.jpg
+   foam_soft       软质泡沫        例: foam_soft_sponge.jpg
+   fragile_glass   玻璃陶瓷易碎品  例: fragile_glass_cup.jpg
+3. 在 VS Code 按 F5，选择“批量预测-真实图片”，
+   终端会逐张输出预测类别和力范围，最后给出总准确率
+4. 文件名不含类别名的图片：仍然会预测，但不计入准确率
+5. 想提高真实图片的准确率：把真实图片也按类别文件夹
+   放进 train_images（如 train_images\metal\），再跑“训练模型”

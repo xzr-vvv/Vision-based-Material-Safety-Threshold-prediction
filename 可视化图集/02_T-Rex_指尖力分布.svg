@@ -1,0 +1,180 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="handGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+    <linearGradient id="barGradL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="barGradR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <text x="600" y="35" text-anchor="middle" font-size="22" font-weight="700" fill="#1f2937">T-Rex · 双臂灵巧手触觉力流数据集</text>
+  <text x="600" y="58" text-anchor="middle" font-size="13" fill="#6b7280">Dexmate Vega-1 + Sharpa Wave 灵巧手 · 10 指尖图像式触觉传感器 · 6 维力/力矩</text>
+
+  <!-- 左侧：手示意 + 指尖编号 -->
+  <g transform="translate(60, 90)">
+    <rect x="0" y="0" width="380" height="440" rx="10" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="190" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">10 个触觉指尖位置</text>
+
+    <!-- 左手手掌示意 -->
+    <g transform="translate(40, 60)">
+      <ellipse cx="80" cy="160" rx="55" ry="75" fill="url(#handGrad)" stroke="#9ca3af" stroke-width="1.5"/>
+      <!-- 5 指 -->
+      <g fill="url(#handGrad)" stroke="#9ca3af" stroke-width="1.2">
+        <rect x="25" y="40" width="22" height="55" rx="11"/>
+        <rect x="55" y="20" width="20" height="70" rx="10"/>
+        <rect x="82" y="15" width="20" height="75" rx="10"/>
+        <rect x="109" y="22" width="20" height="68" rx="10"/>
+        <rect x="128" y="55" width="20" height="45" rx="10"/>
+      </g>
+      <!-- 指尖传感器点 -->
+      <circle cx="36" cy="48" r="7" fill="#3b82f6" stroke="white" stroke-width="2"/>
+      <circle cx="65" cy="28" r="7" fill="#3b82f6" stroke="white" stroke-width="2"/>
+      <circle cx="92" cy="24" r="7" fill="#3b82f6" stroke="white" stroke-width="2"/>
+      <circle cx="119" cy="30" r="7" fill="#3b82f6" stroke="white" stroke-width="2"/>
+      <circle cx="138" cy="62" r="7" fill="#3b82f6" stroke="white" stroke-width="2"/>
+      <text x="15" y="52" font-size="11" fill="#1e40af" font-weight="600">拇</text>
+      <text x="56" y="16" font-size="11" fill="#1e40af" font-weight="600">食</text>
+      <text x="84" y="12" font-size="11" fill="#1e40af" font-weight="600">中</text>
+      <text x="111" y="18" font-size="11" fill="#1e40af" font-weight="600">无</text>
+      <text x="132" y="54" font-size="11" fill="#1e40af" font-weight="600">小</text>
+    </g>
+    <text x="190" y="50" text-anchor="middle" font-size="12" fill="#3b82f6" font-weight="600">左手 5 指尖</text>
+
+    <!-- 右手手掌示意 -->
+    <g transform="translate(220, 60)">
+      <ellipse cx="80" cy="160" rx="55" ry="75" fill="url(#handGrad)" stroke="#9ca3af" stroke-width="1.5"/>
+      <g fill="url(#handGrad)" stroke="#9ca3af" stroke-width="1.2">
+        <rect x="25" y="40" width="22" height="55" rx="11"/>
+        <rect x="55" y="20" width="20" height="70" rx="10"/>
+        <rect x="82" y="15" width="20" height="75" rx="10"/>
+        <rect x="109" y="22" width="20" height="68" rx="10"/>
+        <rect x="128" y="55" width="20" height="45" rx="10"/>
+      </g>
+      <circle cx="36" cy="48" r="7" fill="#10b981" stroke="white" stroke-width="2"/>
+      <circle cx="65" cy="28" r="7" fill="#10b981" stroke="white" stroke-width="2"/>
+      <circle cx="92" cy="24" r="7" fill="#10b981" stroke="white" stroke-width="2"/>
+      <circle cx="119" cy="30" r="7" fill="#10b981" stroke="white" stroke-width="2"/>
+      <circle cx="138" cy="62" r="7" fill="#10b981" stroke="white" stroke-width="2"/>
+    </g>
+    <text x="190" y="280" text-anchor="middle" font-size="12" fill="#10b981" font-weight="600">右手 5 指尖</text>
+
+    <!-- 统计摘要 -->
+    <g transform="translate(20, 310)">
+      <text x="0" y="0" font-size="13" font-weight="600" fill="#1f2937">数据集规模</text>
+      <text x="0" y="22" font-size="12" fill="#4b5563">• 5,464 条演示轨迹</text>
+      <text x="0" y="42" font-size="12" fill="#4b5563">• 5,473,459 帧</text>
+      <text x="0" y="62" font-size="12" fill="#4b5563">• 30 FPS 视觉 / 20+ Hz 触觉</text>
+      <text x="0" y="82" font-size="12" fill="#4b5563">• 22 运动原语 / 200+ 物体</text>
+      <text x="0" y="102" font-size="12" fill="#4b5563">• 每指尖：F6 wrench（力×3 + 力矩×3）</text>
+    </g>
+  </g>
+
+  <!-- 右侧：各指尖最大力对比图 -->
+  <g transform="translate(480, 90)">
+    <text x="0" y="0" font-size="15" font-weight="600" fill="#1f2937">各指尖法向力 Fz 范围（全数据集统计）</text>
+    <text x="0" y="20" font-size="11" fill="#6b7280">单位：N · 线条显示 min ~ max 范围，圆点为 q50 中位数</text>
+
+    <!-- Y轴：10个指尖 -->
+    <!-- X轴：0 ~ 50 N -->
+    <g transform="translate(130, 45)">
+      <!-- 基线 -->
+      <line x1="0" y1="0" x2="600" y2="0" stroke="#d1d5db" stroke-width="1"/>
+      <line x1="0" y1="360" x2="600" y2="360" stroke="#d1d5db" stroke-width="1"/>
+      <text x="0" y="380" font-size="11" fill="#6b7280">0</text>
+      <text x="150" y="380" font-size="11" fill="#6b7280">10</text>
+      <text x="300" y="380" font-size="11" fill="#6b7280">20</text>
+      <text x="450" y="380" font-size="11" fill="#6b7280">30</text>
+      <text x="600" y="380" font-size="11" fill="#6b7280">40+ N</text>
+      <text x="300" y="405" text-anchor="middle" font-size="12" font-weight="600" fill="#374151">法向力 Fz 幅值（|N|）</text>
+
+      <!-- 左手5指 -->
+      <!-- 拇指: min 17.5, max 14.5 -> 取绝对值范围 0~17.5 -->
+      <g transform="translate(0, 0)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#1e40af" font-weight="600">左手·拇指</text>
+        <rect x="0" y="2" width="210" height="12" rx="6" fill="#dbeafe"/>
+        <rect x="0" y="2" width="180" height="12" rx="6" fill="url(#barGradL)"/>
+        <circle cx="50" cy="8" r="5" fill="white" stroke="#1e40af" stroke-width="2"/>
+        <text x="220" y="12" font-size="11" fill="#6b7280">−17.5 ~ 14.5 N</text>
+      </g>
+
+      <g transform="translate(0, 40)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#1e40af" font-weight="600">左手·食指</text>
+        <rect x="0" y="2" width="450" height="12" rx="6" fill="#dbeafe"/>
+        <rect x="44" y="2" width="406" height="12" rx="6" fill="url(#barGradL)"/>
+        <circle cx="168" cy="8" r="5" fill="white" stroke="#1e40af" stroke-width="2"/>
+        <text x="460" y="12" font-size="11" fill="#6b7280">−2.9 ~ 33.4 N</text>
+      </g>
+
+      <g transform="translate(0, 80)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#1e40af" font-weight="600">左手·中指</text>
+        <rect x="0" y="2" width="555" height="12" rx="6" fill="#dbeafe"/>
+        <rect x="45" y="2" width="510" height="12" rx="6" fill="url(#barGradL)"/>
+        <circle cx="230" cy="8" r="5" fill="white" stroke="#1e40af" stroke-width="2"/>
+        <text x="565" y="12" font-size="11" fill="#6b7280">−3.0 ~ 44.4 N</text>
+      </g>
+
+      <g transform="translate(0, 120)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#1e40af" font-weight="600">左手·无名指</text>
+        <rect x="0" y="2" width="500" height="12" rx="6" fill="#dbeafe"/>
+        <rect x="38" y="2" width="462" height="12" rx="6" fill="url(#barGradL)"/>
+        <circle cx="200" cy="8" r="5" fill="white" stroke="#1e40af" stroke-width="2"/>
+        <text x="510" y="12" font-size="11" fill="#6b7280">−2.5 ~ 37.0 N</text>
+      </g>
+
+      <g transform="translate(0, 160)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#1e40af" font-weight="600">左手·小指</text>
+        <rect x="0" y="2" width="420" height="12" rx="6" fill="#dbeafe"/>
+        <rect x="30" y="2" width="390" height="12" rx="6" fill="url(#barGradL)"/>
+        <circle cx="170" cy="8" r="5" fill="white" stroke="#1e40af" stroke-width="2"/>
+        <text x="430" y="12" font-size="11" fill="#6b7280">−2.0 ~ 31.0 N</text>
+      </g>
+
+      <!-- 分隔线 -->
+      <line x1="-10" y1="200" x2="660" y2="200" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- 右手5指 -->
+      <g transform="translate(0, 220)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#065f46" font-weight="600">右手·拇指</text>
+        <rect x="0" y="2" width="170" height="12" rx="6" fill="#d1fae5"/>
+        <rect x="0" y="2" width="145" height="12" rx="6" fill="url(#barGradR)"/>
+        <circle cx="42" cy="8" r="5" fill="white" stroke="#065f46" stroke-width="2"/>
+        <text x="180" y="12" font-size="11" fill="#6b7280">−13.7 ~ 12.8 N</text>
+      </g>
+
+      <g transform="translate(0, 260)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#065f46" font-weight="600">右手·食指</text>
+        <rect x="0" y="2" width="360" height="12" rx="6" fill="#d1fae5"/>
+        <rect x="30" y="2" width="330" height="12" rx="6" fill="url(#barGradR)"/>
+        <circle cx="140" cy="8" r="5" fill="white" stroke="#065f46" stroke-width="2"/>
+        <text x="370" y="12" font-size="11" fill="#6b7280">−2.5 ~ 25.1 N</text>
+      </g>
+
+      <g transform="translate(0, 300)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#065f46" font-weight="600">右手中指</text>
+        <rect x="0" y="2" width="460" height="12" rx="6" fill="#d1fae5"/>
+        <rect x="35" y="2" width="425" height="12" rx="6" fill="url(#barGradR)"/>
+        <circle cx="190" cy="8" r="5" fill="white" stroke="#065f46" stroke-width="2"/>
+        <text x="470" y="12" font-size="11" fill="#6b7280">−2.8 ~ 33.3 N</text>
+      </g>
+
+      <g transform="translate(0, 340)">
+        <text x="-10" y="8" text-anchor="end" font-size="12" fill="#065f46" font-weight="600">右手·无名指</text>
+        <rect x="0" y="2" width="400" height="12" rx="6" fill="#d1fae5"/>
+        <rect x="28" y="2" width="372" height="12" rx="6" fill="url(#barGradR)"/>
+        <circle cx="160" cy="8" r="5" fill="white" stroke="#065f46" stroke-width="2"/>
+        <text x="410" y="12" font-size="11" fill="#6b7280">−2.2 ~ 28.0 N</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="600" y="585" text-anchor="middle" font-size="11" fill="#9ca3af">
+    数据来源：T-Rex dataset (zekaiwang/trex_dataset) · 统计基于全部 547 万帧 · q50 中位力约 1.5~2.9 N，抓取峰值常见 5~7 N
+  </text>
+</svg>
