@@ -15,3 +15,6 @@ paper_*.pdf
 .vscode/
 __pycache__/
 *.pyc
+
+# 大体积压缩包（超过 GitHub 100MB 单文件限制）
+*.zip
