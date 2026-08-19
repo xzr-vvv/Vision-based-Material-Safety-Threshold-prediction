@@ -1,0 +1,23 @@
+﻿字段,内容,来源
+项目全称,ForceSight: Text-Guided Mobile Manipulation with Visual-Force Goals,项目页
+机构,Georgia Institute of Technology（佐治亚理工 · Institute for Robotics and Intelligent Machines）,论文
+作者,"Jeremy A. Collins*, Cody Houff*, You Liang Tan*, Charles C. Kemp（*共同一作）",论文
+发表,ICRA 2024（arXiv:2309.12312 · v2 2023-09-24）,论文
+项目页,https://force-sight.github.io/,项目页
+代码仓库,https://github.com/force-sight/forcesight（MIT 协议 · 2023-11-06 最后更新）,GitHub
+数据集/权重下载,https://1drv.ms/f/s!AjebifpxoPl5hO5bu91QCJSDizws9g?e=h9AlnZ（OneDrive：数据集+模型+传感器安装硬件件；数据放 data/ 模型放 checkpoints/forcesight_0/）,GitHub README
+任务方向,文本指令 + RGB-D 图像 → 视觉-力目标（visual-force goals）：抓取点热力图 + 深度图 + 夹爪开度 + 偏航角 + 抓力 + 施加力；共 10 个移动操作任务,论文+项目页
+网络架构,ViT-large（304M 参数 · ImageNet-21k 初始化）+ 冻结 T5 文本编码器；RGBD patch 编码器 = 在 patch embedding 加第 4 通道（early fusion）；双卷积解码器出 affordance map 和深度图；MLP 头出夹爪开度/施加力/抓力/偏航,论文 III-C
+数据集规模,26,000+ 数据点 ≈ 10,000 次任务演示；30 小时遥操作采集（约 11 秒/演示）；一张输入图关联多视角同一目标以提效；刻意采样失败恢复状态,论文 III-B
+数据点结构,"D_i = { I: RGBD 图 H×W×4（D405） · T: 文本 prompt（任务+动作基元） · C_LR: 2×3 指尖 3D 位置（相机系 · ArUco 标定） · F_G: 抓力标量 · F_A: 施加力 3D 矢量 }",论文 III-B
+采集硬件,Hello Robot Stretch RE1 移动操作机器人 + Intel RealSense D405（夹爪上 eye-in-hand）+ ATI Mini45 六维力/力矩传感器（腕部）,论文 III-B+README
+抓力 F_G 真值来源,Stretch 夹爪原生无力传感器 → 训练 MLP 从夹爪电机位置/电机电流/指尖位置估计；标定真值 = 以不同握力和开度夹 ATI 传感器记录的力幅值（⚠️ 数据集中的 F_G 是估计模型输出 · 非直测值）,论文 III-B
+施加力 F_A 真值来源,腕部 ATI Mini45 F/T 传感器实测 · 变换到相机系（实测值）,论文 III-A/B
+性能,"未见环境+未见物体任务成功率 81%；去掉力目标只做视觉伺控成功率从 90% 降至 45%；第三方（ETH Hoi! 数据集论文）在 ForceSight 测试集上复测 RMSE 0.40N",论文摘要+arXiv:2512.04884
+训练/测试划分,测试用全新环境+全新物体实例（物体不重叠 · 与本项目'同物体不得跨集'原则一致）,论文+项目页
+训练/推理环境,conda（Python 3.8 · 见 environment.yml/requirements.txt）；实机需 stretch_remote；仅推理+D405 相机即可 live view（无需机器人）,GitHub README
+许可,GitHub 代码 MIT；数据集经 OneDrive 公开分发（未见单独许可声明 · 使用前需确认）,GitHub
+与本项目契合点,"① 输入形态完全一致：RGB-D 相机直出真深度（符合'禁用伪深度'红线）；② 已验证 RGB-D→抓力预测的顶会可行性；③ 26k+ RGB-D+力值样本可作深度流预训练；④ 测试集物体与训练集不重叠的严谨协议可借鉴",本报告核实
+与本项目差异/风险,"① 力语义 = 任务目标力 · 非刚体/柔性/易碎三类安全上下界（全球尚无此标注 · 需自采）；② 物体未按三类分类 · 无质量标注；③ F_G 是估计值非实测（本项目红线是'标签必须实测'→ 用于预训练只能当弱标签 · 不可入 labels.csv）；④ 面向抽屉/柜门/拾取等移动操作任务 · 物体多为日常用品；⑤ 数据集在 OneDrive · 国内下载可能受限；⑥ 仓库 2023-11 后未再更新",本报告核实
+用途结论,架构（RGBD patch 编码）与可行性引用直接可用；数据只建议做深度流预训练的弱监督源；安全范围标签仍须走 ExpForce 实测值平移 + RGB-D 自采,本报告核实
+整理日期,2026-08-19（信息核实自项目页/GitHub README/arXiv 论文全文）,
