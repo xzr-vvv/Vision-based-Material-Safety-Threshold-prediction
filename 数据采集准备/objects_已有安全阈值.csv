@@ -1,42 +1,42 @@
-﻿object_id,object_family_id,object_name,material_class,mass_kg,dimensions_m,fragile_flag,deformable_flag,source,f_min_value,f_min_unit,f_min_semantics,force_total_or_single,measurement_protocol,trial_count,trial_values,selected_value,gripper_model,sensor_model,calibration_id,ref_expforce_id,ref_object_name,ref_category,ref_f_min_total_N,ref_f_max_total_N,ref_f_min_single_N,ref_match_note,notes
-FRA001,glass_cup,玻璃水杯(厚壁直筒),玻璃,,,1,0,超市/家里,,,,,,,,,,,,E116,Glass tumbler,易碎,1.5,3.0,0.75,同型无柄玻璃杯,"深度易空洞,两种光照"
-FRA002,glass_cup,玻璃水杯(薄壁),玻璃,,,1,0,超市,,,,,,,,,,,,E041/E116,Glass whiskey cup / Glass tumbler,易碎,1.5,3.0,0.75,同为无柄玻璃杯,"薄壁,避免强反光"
-FRA003,glass_stemware,红酒杯(高脚),玻璃,,,1,0,超市/家里,,,,,,,,,,,,E119/E117/E118,Wine/Margarita/Champagne glass,易碎,1.0,2.0,0.5,高脚杯同类,"杯壁极薄,柄细易断"
-FRA005,glass_bottle,玻璃汽水瓶(空),玻璃,,,1,0,超市(喝完留瓶),,,,,,,,,,,,E108,Glass Coca-Cola bottle,易碎,2.5,5.0,1.25,同型玻璃汽水瓶,买饮料送采集物
-FRA006,glass_bottle,"玻璃蜂蜜罐(空,带盖)",玻璃,,,1,0,超市,,,,,,,,,,,,E008,Blueberry jam jar (Empty),易碎,0.75,1.5,0.375,同为空玻璃罐带盖,蜂蜜吃完即得
-FRA010,ceramic_cup,陶瓷马克杯,陶瓷,,,1,0,家里/超市,,,,,,,,,,,,E120,Ceramic mug,易碎,1.5,3.0,0.75,完全同型,
-FRA016,thin_wall_paper,纸杯(单个),纸,,,1,0,超市(整袋),,,,,,,,,,,,E005/E006,Small/Medium paper cup,柔性,0.25,0.75,0.125,ExpForce归柔性,对齐ExpForce易碎
-FRA019,brittle_snack,袋装整片薯片(未开封),食品,,,1,0,超市,,,,,,,,,,,,E040,Single Pringles potato chip,易碎,0.25,0.5,0.125,单片薯片实测;袋装为取材来源,选整片不碎的品相
-FRA024,egg,生鸡蛋,蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,0.5,1.0,0.25,完全同型,标志物;测力垫托
-FRA025,egg,皮蛋,蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,0.5,1.0,0.25,蛋类同型参考,
-FRA032,glass_bottle,"玻璃酱菜瓶(空,带盖)",玻璃,,,1,0,超市,,,,,,,,,,,,E008,Blueberry jam jar (Empty),易碎,0.75,1.5,0.375,同为空玻璃罐带盖,
-FRA039,thin_wall_plastic,薄壁塑料杯(一次性),塑料薄壁,,,1,0,超市,,,,,,,,,,,,E007/E114,Medium/Red plastic cup,柔性,0.25,0.75,0.125,ExpForce归柔性,
-FRA048,brittle_snack,Pocky饼干棒(盒装),食品,,,1,0,超市,,,,,,,,,,,,E038/E110,Pocky snack box,刚体,1.0,5.0,0.5,完全同型;ExpForce归刚体,
-FRA051,egg,咸鸭蛋(生),蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,0.5,1.0,0.25,蛋类同型参考,
-SOF001,fruit,香蕉,水果,,,0,1,超市,,,,,,,,,,,,E056,Banana,柔性,1.0,3.0,0.5,完全同型,对齐ExpForce柔性
-SOF002,fruit,橙子,水果,,,0,1,超市,,,,,,,,,,,,E029/E027/E028,Orange / Cara Cara orange,柔性,1.5,4.5,0.75,完全同型;大橙子E103为2.0-6.0,
-SOF003,fruit,番茄,水果,,,0,1,超市,,,,,,,,,,,,E020/E021,Roma tomato,柔性,2.0,6.0,1.0,完全同型,
-SOF004,fruit,草莓,水果,,,0,1,超市,,,,,,,,,,,,E026/E073,Strawberry,柔性,0.5,1.5,0.25,完全同型;大草莓E074为1.0-3.0,选硬挺品相
-SOF005,fruit,葡萄(整串),水果,,,0,1,超市,,,,,,,,,,,,E032/E033/E077-E079,Red/Green grape,柔性,0.5,1.5,0.25,单粒实测,
-SOF008,fruit,柠檬,水果,,,0,1,超市,,,,,,,,,,,,E023,Lemon,柔性,0.5,1.5,0.25,完全同型;大柠檬E065为0.75-2.25,
-SOF009,fruit,圣女果,水果,,,0,1,超市,,,,,,,,,,,,E080-E085,Grape tomato,柔性,0.5,1.5,0.25,完全同型,
-SOF013,vegetable,青椒,蔬菜,,,0,1,超市,,,,,,,,,,,,E025,Yellow mini bell pepper,柔性,1.0,3.0,0.5,同型;迷你椒E070-E072为0.5-1.5,
-SOF030,soft_food,棉花糖,糖/明胶,,,0,1,超市,,,,,,,,,,,,E013/E048/E049/E122,Marshmallow,柔性,0.25,0.75,0.125,完全同型,
-SOF031,fruit,梨,水果,,,0,1,超市,,,,,,,,,,,,E064,Green pear,柔性,1.5,4.5,0.75,同型,
-SOF053,soft_food,软糖(袋装),明胶,,,0,1,超市,,,,,,,,,,,,E055,Goodbye Stress gummies,刚体,0.75,3.75,0.375,同类袋装软糖;ExpForce归刚体,
-RIG001,bottle_can,易拉罐(满),金属,,,0,0,超市,,,,,,,,,,,,E044,Diet Coke can,刚体,2.0,10.0,1.0,同类汽水罐(E016/E017/E043/E089/E099为1.75-12.5),拍完可喝
-RIG004,bottle_can,洗发水瓶(满),硬塑料,,,0,0,家里,,,,,,,,,,,,E107,Head & Shoulders shampoo bottle,刚体,2.0,10.0,1.0,完全同型,
-RIG005,bottle_can,午餐肉罐头,金属,,,0,0,超市,,,,,,,,,,,,E003,Spam canned meat,刚体,2.5,12.5,1.25,同型罐头(金枪鱼罐E100为1.5-7.5),拍完可吃
-RIG006,bottle_can,咖啡罐(铁),金属,,,0,0,超市,,,,,,,,,,,,E095,Tomato soup can,刚体,2.5,12.5,1.25,同型铁罐,
-RIG008,bottle_can,薯片罐(未开封),硬纸,,,0,0,超市,,,,,,,,,,,,E002,Pringles can,刚体,1.5,7.5,0.75,完全同型;侧放E045为3.0-15.0,对齐ExpForce刚体
-RIG013,tool,胶带卷,塑料/胶,,,0,0,家里/文具,,,,,,,,,,,,E052,Magic tape roll,刚体,2.0,10.0,1.0,同型胶带卷(布基胶带E101为1.0-5.0),
-RIG016,electronics,充电宝,电子,,,0,0,家里,,,,,,,,,,,,E019,Green power bank,刚体,2.0,10.0,1.0,完全同型,
-RIG017,electronics,遥控器,电子,,,0,0,家里,,,,,,,,,,,,E050,TV remote control,刚体,1.0,5.0,0.5,完全同型,
-RIG024,bottle_can,硬塑料运动壶,硬塑料,,,0,0,家里,,,,,,,,,,,,E047,Protein shaker bottle,刚体,2.0,10.0,1.0,同型摇摇杯,
-RIG025,bottle_can,喷雾瓶,硬塑料,,,0,0,家里,,,,,,,,,,,,E105,Clorox spray cleaner,刚体,3.25,16.25,1.625,同型喷嘴瓶(剃须泡沫E057为1.0-5.0),
-RIG049,daily_rigid,折叠伞(卷好),织物/金属,,,0,0,家里,,,,,,,,,,,,E128,Umbrella (Folded),刚体,1.5,7.5,0.75,完全同型,
-RIG054,food_packaged,硬塑料调料瓶,硬塑料,,,0,0,超市,,,,,,,,,,,,E093,Yellow mustard bottle,刚体,3.25,16.25,1.625,同型调料瓶,
-RIG055,food_packaged,方糖盒,纸,,,0,0,超市,,,,,,,,,,,,E111,Granulated sugar (32 oz),刚体,3.5,17.5,1.75,同为糖容器(盐罐E098为4.5-22.5),
-RIG057,food_packaged,谷物早餐盒,纸/塑料,,,0,0,超市,,,,,,,,,,,,E090/E091,Muffin mix/Crackers box,刚体,2.0,10.0,1.0,同型食品纸盒,
-RIG058,food_packaged,罐装八宝粥,金属,,,0,0,超市,,,,,,,,,,,,E095,Tomato soup can,刚体,2.5,12.5,1.25,同为金属罐装食品,
-RIG059,food_packaged,挂耳咖啡盒,纸,,,0,0,超市,,,,,,,,,,,,E090/E091,Muffin mix/Crackers box,刚体,2.0,10.0,1.0,同类食品纸盒,
+﻿object_id,object_family_id,object_name,material_class,mass_kg,dimensions_m,fragile_flag,deformable_flag,source,f_min_value,f_min_unit,f_min_semantics,force_total_or_single,measurement_protocol,trial_count,trial_values,selected_value,gripper_model,sensor_model,calibration_id,ref_expforce_id,ref_object_name,ref_category,ref_force_semantics,ref_f_min_total_N,ref_f_max_total_N,ref_f_min_single_N,ref_f_max_single_N,ref_single_finger_rule,ref_match_note,notes
+FRA001,glass_cup,玻璃水杯(厚壁直筒),玻璃,,,1,0,超市/家里,,,,,,,,,,,,E116,Glass tumbler,易碎,total_two_finger_normal,1.5,3.0,0.75,1.5,F_single = F_total / 2,同型无柄玻璃杯,"深度易空洞,两种光照"
+FRA002,glass_cup,玻璃水杯(薄壁),玻璃,,,1,0,超市,,,,,,,,,,,,E041/E116,Glass whiskey cup / Glass tumbler,易碎,total_two_finger_normal,1.5,3.0,0.75,1.5,F_single = F_total / 2,同为无柄玻璃杯,"薄壁,避免强反光"
+FRA003,glass_stemware,红酒杯(高脚),玻璃,,,1,0,超市/家里,,,,,,,,,,,,E119/E117/E118,Wine/Margarita/Champagne glass,易碎,total_two_finger_normal,1.0,2.0,0.5,1,F_single = F_total / 2,高脚杯同类,"杯壁极薄,柄细易断"
+FRA005,glass_bottle,玻璃汽水瓶(空),玻璃,,,1,0,超市(喝完留瓶),,,,,,,,,,,,E108,Glass Coca-Cola bottle,易碎,total_two_finger_normal,2.5,5.0,1.25,2.5,F_single = F_total / 2,同型玻璃汽水瓶,买饮料送采集物
+FRA006,glass_bottle,"玻璃蜂蜜罐(空,带盖)",玻璃,,,1,0,超市,,,,,,,,,,,,E008,Blueberry jam jar (Empty),易碎,total_two_finger_normal,0.75,1.5,0.375,0.75,F_single = F_total / 2,同为空玻璃罐带盖,蜂蜜吃完即得
+FRA010,ceramic_cup,陶瓷马克杯,陶瓷,,,1,0,家里/超市,,,,,,,,,,,,E120,Ceramic mug,易碎,total_two_finger_normal,1.5,3.0,0.75,1.5,F_single = F_total / 2,完全同型,
+FRA016,thin_wall_paper,纸杯(单个),纸,,,1,0,超市(整袋),,,,,,,,,,,,E005/E006,Small/Medium paper cup,柔性,total_two_finger_normal,0.25,0.75,0.125,0.375,F_single = F_total / 2,ExpForce归柔性,对齐ExpForce易碎
+FRA019,brittle_snack,袋装整片薯片(未开封),食品,,,1,0,超市,,,,,,,,,,,,E040,Single Pringles potato chip,易碎,total_two_finger_normal,0.25,0.5,0.125,0.25,F_single = F_total / 2,单片薯片实测;袋装为取材来源,选整片不碎的品相
+FRA024,egg,生鸡蛋,蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,total_two_finger_normal,0.5,1.0,0.25,0.5,F_single = F_total / 2,完全同型,标志物;测力垫托
+FRA025,egg,皮蛋,蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,total_two_finger_normal,0.5,1.0,0.25,0.5,F_single = F_total / 2,蛋类同型参考,
+FRA032,glass_bottle,"玻璃酱菜瓶(空,带盖)",玻璃,,,1,0,超市,,,,,,,,,,,,E008,Blueberry jam jar (Empty),易碎,total_two_finger_normal,0.75,1.5,0.375,0.75,F_single = F_total / 2,同为空玻璃罐带盖,
+FRA039,thin_wall_plastic,薄壁塑料杯(一次性),塑料薄壁,,,1,0,超市,,,,,,,,,,,,E007/E114,Medium/Red plastic cup,柔性,total_two_finger_normal,0.25,0.75,0.125,0.375,F_single = F_total / 2,ExpForce归柔性,
+FRA048,brittle_snack,Pocky饼干棒(盒装),食品,,,1,0,超市,,,,,,,,,,,,E038/E110,Pocky snack box,刚体,total_two_finger_normal,1.0,5.0,0.5,2.5,F_single = F_total / 2,完全同型;ExpForce归刚体,
+FRA051,egg,咸鸭蛋(生),蛋壳,,,1,0,超市,,,,,,,,,,,,E060/E061,Large brown/white egg,易碎,total_two_finger_normal,0.5,1.0,0.25,0.5,F_single = F_total / 2,蛋类同型参考,
+SOF001,fruit,香蕉,水果,,,0,1,超市,,,,,,,,,,,,E056,Banana,柔性,total_two_finger_normal,1.0,3.0,0.5,1.5,F_single = F_total / 2,完全同型,对齐ExpForce柔性
+SOF002,fruit,橙子,水果,,,0,1,超市,,,,,,,,,,,,E029/E027/E028,Orange / Cara Cara orange,柔性,total_two_finger_normal,1.5,4.5,0.75,2.25,F_single = F_total / 2,完全同型;大橙子E103为2.0-6.0,
+SOF003,fruit,番茄,水果,,,0,1,超市,,,,,,,,,,,,E020/E021,Roma tomato,柔性,total_two_finger_normal,2.0,6.0,1,3,F_single = F_total / 2,完全同型,
+SOF004,fruit,草莓,水果,,,0,1,超市,,,,,,,,,,,,E026/E073,Strawberry,柔性,total_two_finger_normal,0.5,1.5,0.25,0.75,F_single = F_total / 2,完全同型;大草莓E074为1.0-3.0,选硬挺品相
+SOF005,fruit,葡萄(整串),水果,,,0,1,超市,,,,,,,,,,,,E032/E033/E077-E079,Red/Green grape,柔性,total_two_finger_normal,0.5,1.5,0.25,0.75,F_single = F_total / 2,单粒实测,
+SOF008,fruit,柠檬,水果,,,0,1,超市,,,,,,,,,,,,E023,Lemon,柔性,total_two_finger_normal,0.5,1.5,0.25,0.75,F_single = F_total / 2,完全同型;大柠檬E065为0.75-2.25,
+SOF009,fruit,圣女果,水果,,,0,1,超市,,,,,,,,,,,,E080-E085,Grape tomato,柔性,total_two_finger_normal,0.5,1.5,0.25,0.75,F_single = F_total / 2,完全同型,
+SOF013,vegetable,青椒,蔬菜,,,0,1,超市,,,,,,,,,,,,E025,Yellow mini bell pepper,柔性,total_two_finger_normal,1.0,3.0,0.5,1.5,F_single = F_total / 2,同型;迷你椒E070-E072为0.5-1.5,
+SOF030,soft_food,棉花糖,糖/明胶,,,0,1,超市,,,,,,,,,,,,E013/E048/E049/E122,Marshmallow,柔性,total_two_finger_normal,0.25,0.75,0.125,0.375,F_single = F_total / 2,完全同型,
+SOF031,fruit,梨,水果,,,0,1,超市,,,,,,,,,,,,E064,Green pear,柔性,total_two_finger_normal,1.5,4.5,0.75,2.25,F_single = F_total / 2,同型,
+SOF053,soft_food,软糖(袋装),明胶,,,0,1,超市,,,,,,,,,,,,E055,Goodbye Stress gummies,刚体,total_two_finger_normal,0.75,3.75,0.375,1.875,F_single = F_total / 2,同类袋装软糖;ExpForce归刚体,
+RIG001,bottle_can,易拉罐(满),金属,,,0,0,超市,,,,,,,,,,,,E044,Diet Coke can,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,同类汽水罐(E016/E017/E043/E089/E099为1.75-12.5),拍完可喝
+RIG004,bottle_can,洗发水瓶(满),硬塑料,,,0,0,家里,,,,,,,,,,,,E107,Head & Shoulders shampoo bottle,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,完全同型,
+RIG005,bottle_can,午餐肉罐头,金属,,,0,0,超市,,,,,,,,,,,,E003,Spam canned meat,刚体,total_two_finger_normal,2.5,12.5,1.25,6.25,F_single = F_total / 2,同型罐头(金枪鱼罐E100为1.5-7.5),拍完可吃
+RIG006,bottle_can,咖啡罐(铁),金属,,,0,0,超市,,,,,,,,,,,,E095,Tomato soup can,刚体,total_two_finger_normal,2.5,12.5,1.25,6.25,F_single = F_total / 2,同型铁罐,
+RIG008,bottle_can,薯片罐(未开封),硬纸,,,0,0,超市,,,,,,,,,,,,E002,Pringles can,刚体,total_two_finger_normal,1.5,7.5,0.75,3.75,F_single = F_total / 2,完全同型;侧放E045为3.0-15.0,对齐ExpForce刚体
+RIG013,tool,胶带卷,塑料/胶,,,0,0,家里/文具,,,,,,,,,,,,E052,Magic tape roll,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,同型胶带卷(布基胶带E101为1.0-5.0),
+RIG016,electronics,充电宝,电子,,,0,0,家里,,,,,,,,,,,,E019,Green power bank,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,完全同型,
+RIG017,electronics,遥控器,电子,,,0,0,家里,,,,,,,,,,,,E050,TV remote control,刚体,total_two_finger_normal,1.0,5.0,0.5,2.5,F_single = F_total / 2,完全同型,
+RIG024,bottle_can,硬塑料运动壶,硬塑料,,,0,0,家里,,,,,,,,,,,,E047,Protein shaker bottle,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,同型摇摇杯,
+RIG025,bottle_can,喷雾瓶,硬塑料,,,0,0,家里,,,,,,,,,,,,E105,Clorox spray cleaner,刚体,total_two_finger_normal,3.25,16.25,1.625,8.125,F_single = F_total / 2,同型喷嘴瓶(剃须泡沫E057为1.0-5.0),
+RIG049,daily_rigid,折叠伞(卷好),织物/金属,,,0,0,家里,,,,,,,,,,,,E128,Umbrella (Folded),刚体,total_two_finger_normal,1.5,7.5,0.75,3.75,F_single = F_total / 2,完全同型,
+RIG054,food_packaged,硬塑料调料瓶,硬塑料,,,0,0,超市,,,,,,,,,,,,E093,Yellow mustard bottle,刚体,total_two_finger_normal,3.25,16.25,1.625,8.125,F_single = F_total / 2,同型调料瓶,
+RIG055,food_packaged,方糖盒,纸,,,0,0,超市,,,,,,,,,,,,E111,Granulated sugar (32 oz),刚体,total_two_finger_normal,3.5,17.5,1.75,8.75,F_single = F_total / 2,同为糖容器(盐罐E098为4.5-22.5),
+RIG057,food_packaged,谷物早餐盒,纸/塑料,,,0,0,超市,,,,,,,,,,,,E090/E091,Muffin mix/Crackers box,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,同型食品纸盒,
+RIG058,food_packaged,罐装八宝粥,金属,,,0,0,超市,,,,,,,,,,,,E095,Tomato soup can,刚体,total_two_finger_normal,2.5,12.5,1.25,6.25,F_single = F_total / 2,同为金属罐装食品,
+RIG059,food_packaged,挂耳咖啡盒,纸,,,0,0,超市,,,,,,,,,,,,E090/E091,Muffin mix/Crackers box,刚体,total_two_finger_normal,2.0,10.0,1,5,F_single = F_total / 2,同类食品纸盒,
