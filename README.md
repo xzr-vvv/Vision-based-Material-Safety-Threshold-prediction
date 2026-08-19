@@ -1,16 +1,10 @@
-﻿# 机械臂抓取安全压力范围——触觉数据集合集（v3）
-
-来源页面：https://github.com/RLCL-EIT/robotics_arxiv_daily （Tactile / Visuo-Tactile 板块）
-筛选主题：机械臂/夹爪抓取物体时的接触力、抓取压力、安全（不损伤物体）力范围。
-分类：刚体、柔性物体、易碎物品。
-
-v3 修订（2026-08-18）：新增 Exp-Force 真实数据集与单流(RGB)预测模型。
+﻿v3 修订（2026-08-18）：新增 Exp-Force 真实数据集与单流(RGB)预测模型。
 经可信度评估（见 dataset-credibility-report/），前 6 个数据集的力值均为估计值或仿真值；
 Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源项目，列为首选训练数据。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 〇、推荐快速上手：Exp-Force 数据集 + 单流模型
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 【ExpForce数据集/】Exp-Force（UT Austin, arXiv:2603.08668）
 - 采集：Franka Panda 机械臂 + FORTE 触觉 fin-ray 指夹；自适应力控从 0.25N 起步，
@@ -48,9 +42,9 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 【dataset-credibility-report/】六个候选数据集可信度评估报告（HTML）
 - 结论：6 个数据集的力值均为估计值/仿真值，非直接发布真值；Exp-Force 为唯一实测真值来源。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 一、硬的刚体（机械臂 × 刚性物体）
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 【01_刚体_RCT】Robot-Collected Touch-Vision-Language Dataset（arXiv:2606.31694, Calandra 组）
 - 采集：机械臂末端装旋转适配器 + 3 个 DIGIT 视觉触觉传感器，按压 122 种工业刚性材料
@@ -71,9 +65,8 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 - 数据：https://huggingface.co/datasets/zekaiwang/trex_dataset （LeRobot v3 格式，data/ 共 3.06GB 可选）
 - 代码：https://github.com/ZhuoyangLiu2005/T-Rex
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 二、柔性物体
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 【03_柔性_Deform360】（ECCV 2026, arXiv:2607.05390）
 - 采集：双臂 UMI 触觉夹爪（4 路 16x32 压力阵列）+ 41 相机，198 个可变形物体（绳/布/线缆等 13 类），
@@ -87,9 +80,9 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 - 已下载：两组装配清单 + epsilon 阈值参数 + 柔性/刚体各 1 条完整演示 HDF5 + 代码 + 论文。
 - 数据：https://huggingface.co/datasets/Arthur12137/SoftVTBench （ModelScope 有国内镜像）
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 三、易碎物品
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 【05_易碎_OopsieVerse】（RSS 2026, arXiv:2606.31993）
 - 采集：RoboCasa/B1K 仿真机械臂，32 个家庭任务（抓鸡蛋、酒杯、盘子、倒水等）；
@@ -102,9 +95,9 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 - 已下载：40 个装配演示 HDF5 + 3 条重放演示 + Franka/GelSight Mini 触觉仿真资产（120.8MB）+ 代码 + 论文。
 - 数据：https://huggingface.co/datasets/NathanWu7/Isaaclab_Libero 与 china-sae-robotics/Tactile_Manipulation_Dataset
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 〇·二、自采数据与模型 v2（当前工作重心）
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 【数据采集准备/】RGB-D 自采物体清单（2026-08-19）
 - 物体清单.html —— 三类物体各 60 个候选（易碎优先，公开 RGB-D 数据为零），
