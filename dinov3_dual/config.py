@@ -23,7 +23,8 @@ CSV_PATH = os.path.join(DATASET_ROOT, "labels.csv")
 EXPFORCE_CSV = r"E:\A-机器学习\07_ExpForce_安全抓力范围.csv"
 
 MODEL_SIZE = "l"          # l = ViT-L（推荐）
-DAV2_HF_ID = "depth-anything/Depth-Anything-V2-Large"
+# 注意: 必须用 -hf 后缀的 transformers 兼容版; 原版仓库 config 缺 model_type 无法加载
+DAV2_HF_ID = "depth-anything/Depth-Anything-V2-Large-hf"
 
 IMG_SIZE = 224
 BATCH = 16

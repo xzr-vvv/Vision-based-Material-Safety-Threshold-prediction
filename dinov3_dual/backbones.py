@@ -16,16 +16,30 @@ def _freeze(m):
     return m
 
 
+def _pick(v):
+    """单个骨干输出 -> (B, C)。多尺度取最后一层; 序列取 CLS; 特征图全局池化"""
+    if isinstance(v, (tuple, list)):
+        v = v[-1]
+    if not torch.is_tensor(v):
+        raise RuntimeError("无法提取特征张量: " + str(type(v)))
+    if v.dim() == 3:                # (B, N, D) 序列 -> CLS token
+        return v[:, 0]
+    if v.dim() == 4:                # (B, C, H, W) 特征图 -> 全局平均池化
+        return v.mean(dim=(2, 3))
+    return v
+
+
 def _cls_feature(out):
-    if isinstance(out, dict):
-        for k in ("x_norm_clstoken", "last_hidden_state"):
-            if k in out:
-                v = out[k]
-                return v[:, 0] if v.dim() == 3 else v
-        v = next(iter(out.values()))
-        return v[:, 0] if v.dim() == 3 else v
+    if isinstance(out, (tuple, list)):
+        return _pick(out)
+    if isinstance(out, dict):       # 含 transformers ModelOutput / BackboneOutput
+        for k in ("x_norm_clstoken", "last_hidden_state", "hidden_states",
+                  "feature_maps"):
+            if out.get(k) is not None:
+                return _pick(out[k])
+        return _pick(next(iter(out.values())))
     if torch.is_tensor(out):
-        return out[:, 0] if out.dim() == 3 else out
+        return _pick(out)
     raise RuntimeError("无法从骨干输出中提取特征: " + str(type(out)))
 
 
@@ -36,7 +50,9 @@ def load_backbone(size=None, device=None):
     device = device or get_device()
     errors = []
     try:
-        m = torch.hub.load("facebookresearch/dinov3", f"dinov3_vit{size}",
+        hub_name = {"s": "dinov3_vits16", "b": "dinov3_vitb16",
+                    "l": "dinov3_vitl16"}[size]
+        m = torch.hub.load("facebookresearch/dinov3", hub_name,
                            pretrained=True, trust_repo=True)
         _freeze(m).to(device)
         return m, m.embed_dim, f"DINOv3 ViT-{size.upper()}"
@@ -119,12 +135,36 @@ def load_depth_encoder(device=None):
     """深度流: Depth Anything V2 ViT-L 编码器（冻结），作为深度图特征提取器。
     注: 该编码器预训练输入为 RGB（单目深度估计），此处迁移用于真实深度图特征提取，
     属常见迁移用法；融合头会学习适配其特征空间。"""
-    from transformers import AutoModelForDepthEstimation
+    from transformers import (AutoModelForDepthEstimation, PretrainedConfig,
+                              DepthAnythingForDepthEstimation, DPTForDepthEstimation)
     device = device or get_device()
-    full = AutoModelForDepthEstimation.from_pretrained(C.DAV2_HF_ID)
+    full = None
+    try:
+        full = AutoModelForDepthEstimation.from_pretrained(C.DAV2_HF_ID)
+    except ValueError:
+        # 该仓库 config.json 缺 model_type 字段(transformers>=5 拒绝), 手动补上再加载
+        cfg = PretrainedConfig.from_pretrained(C.DAV2_HF_ID)
+        for mt, cls in (("depth_anything", DepthAnythingForDepthEstimation),
+                        ("dpt", DPTForDepthEstimation)):
+            try:
+                cfg.model_type = mt
+                full = cls.from_pretrained(C.DAV2_HF_ID, config=cfg)
+                break
+            except Exception:
+                continue
+        if full is None:
+            raise
     enc = getattr(full, "backbone", None) or getattr(full.model, "backbone", full.model)
     _freeze(enc).to(device)
-    dim = getattr(enc, "hidden_size", None) or 1024
+    # 用一次空跑探测真实特征维度（Dinov2Backbone 返回多尺度特征图, 属性不可靠）
+    from torchvision.transforms import functional as TF
+    dummy = TF.normalize(torch.zeros(3, C.IMG_SIZE, C.IMG_SIZE),
+                         [0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    try:
+        out = enc(dummy.unsqueeze(0).to(device), interpolate_pos_encoding=True)
+    except TypeError:
+        out = enc(dummy.unsqueeze(0).to(device))
+    dim = _cls_feature(out).shape[-1]
     return enc, dim, "DAv2 ViT-L encoder"
 
 
