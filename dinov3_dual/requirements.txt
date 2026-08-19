@@ -1,0 +1,7 @@
+torch>=2.0
+torchvision>=0.15
+transformers>=4.45
+pillow>=9.0
+numpy
+pandas
+tqdm
