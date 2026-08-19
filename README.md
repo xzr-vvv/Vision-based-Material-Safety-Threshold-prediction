@@ -103,6 +103,28 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 - 数据：https://huggingface.co/datasets/NathanWu7/Isaaclab_Libero 与 china-sae-robotics/Tactile_Manipulation_Dataset
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+〇·二、自采数据与模型 v2（当前工作重心）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【数据采集准备/】RGB-D 自采物体清单（2026-08-19）
+- 物体清单.html —— 三类物体各 60 个候选（易碎优先，公开 RGB-D 数据为零），
+  每类前 30 个为首批必采（满足规范 A 级"最低可启动"线）；含分类边界速查、
+  采购渠道与预算（全部 180 个约 ¥1100，首批约 ¥570）；浏览器打开可勾选追踪收集进度。
+- objects_模板.csv —— 180 行预填模板（object_id/family_id/材质/渠道），质量尺寸与
+  力值列待实测后填写；family_id 用于训练/测试隔离切分，禁止按图片随机切分。
+
+【SAFETYVTLA_DATA_REQUIREMENTS_V1.md】上级数据采集与交付规范
+- A 级（当前目标）：离线视觉先验——每类 ≥30 物体 × ≥5 图 + 3 次独立力测量；
+  B 级影子模式、C 级真机闭环为后续阶段，未满足前保持 disarmed。
+
+【dinov3_dual/】真双流模型（DINOv3 ViT-L RGB 流 + Depth Anything V2 深度流）
+- 双骨干全冻结、只训融合头，专为小样本设计；必须提供相机直出深度图（缺深度即报错，
+  不接受伪深度）；8 个代码文件全链路冒烟测试通过。
+
+【调研报告】rgbd-image-datasets / rgbd-grasp-force-survey / vision-backbone-survey /
+proposal-insights / project-progress-report —— 数据集选型、视觉骨干与抓力调研、进度汇报。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 备注
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. RCT 的 9.23GB 数据本体因 figshare 反爬需浏览器手动下载，直链见 01_刚体_RCT\数据集下载说明.txt。
