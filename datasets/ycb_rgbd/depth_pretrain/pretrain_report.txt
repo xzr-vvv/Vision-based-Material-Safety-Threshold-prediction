@@ -1,0 +1,6 @@
+深度流预训练报告 (ycbv 900 张真实深度图, 无力值标签, SafetyVTLA 合规)
+骨干: DAv2 ViT-L 冻结 | 适配头 1024->256 | SimCLR temp=0.2
+训练: 120 epoch, 视图对齐最优准确率见 adapter.pt
+原图最近邻同场景率: 99.6% (12场景随机基线约8%)
+增强视图不变性: 54.2%
+接入方式: v2 正式训练时 depth 特征先过 adapter.pt 再进 FusionNet
