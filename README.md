@@ -23,8 +23,14 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
   - ExpForce_images/ —— 129 张真实图片
   - process_expforce.py —— 三类归类的数据处理脚本
   - eval_cross_camera.py —— 跨相机泛化实测脚本
+- 力值语义（已按 SAFETYVTLA 规范标注，2026-08-19）：论文原文定义 F* = 两指法向接触力之和
+  （"sum of the contact normal forces of two parallel gripper fingers"），即**两指总夹持力**。
+  CSV 保留总力原值（f_min_value，不静默转换），并新增单指换算列
+  f_min_single_finger_N = F_total / 2（规范默认换算规则），两列并存。
+  自采数据必须沿用同一语义标注（force_total_or_single 列）。
 - 最大安全力说明：全球无项目发布逐物体损坏阈值，最大力 = 类别系数 × 实测最小力
   （易碎×2.0，柔性×3.0，刚体×5.0），取整到 0.25N；来源已在 CSV data_source 列标注。
+  按规范：该上限为工程推算值，禁止当作真实损伤阈值使用。
 - 官网：https://expforcesubmission.github.io/Exp-Force-Website/
 
 【ExpForce单流模型/】单流(RGB) ResNet18 多任务模型（准确优先）
