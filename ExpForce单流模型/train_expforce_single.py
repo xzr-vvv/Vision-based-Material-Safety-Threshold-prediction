@@ -5,11 +5,13 @@
 策略: ImageNet 预训练 ResNet18, 分层划分 80/20, 强增广, 冻结->解冻两阶段,
       余弦退火, 标签平滑, 按验证集准确率保存最优模型
 """
+import argparse
 import csv
 import os
 import random
 import sys
 import time
+from collections import Counter
 from math import cos, pi
 
 E_LIB = r"E:\Lib\site-packages"
@@ -22,9 +24,11 @@ from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 from torchvision import models, transforms
 
-DATA_CSV = r"E:\A-机器学习\07_ExpForce_安全抓力范围.csv"
-IMG_DIR = r"E:\A-机器学习\ExpForce_images"
-MODEL_OUT = r"E:\A-触觉机器学习\ExpForce单流模型\expforce_single_stream.pth"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_HERE, ".."))
+DATA_CSV = os.path.join(_REPO_ROOT, "ExpForce数据集", "07_ExpForce_安全抓力范围.csv")
+IMG_DIR = os.path.join(_REPO_ROOT, "ExpForce数据集", "ExpForce_images")
+MODEL_OUT = os.path.join(_HERE, "expforce_single_stream.pth")
 CLASSES = ["刚体", "柔性", "易碎"]
 IMG_SIZE = 224
 BATCH = 16
@@ -65,11 +69,12 @@ class ExpForceDataset(Dataset):
 
     def __getitem__(self, i):
         r = self.rows[i]
-        img = Image.open(os.path.join(IMG_DIR, r["image_file"])).convert("RGB")
+        p = r["image_file"]
+        img = Image.open(p if os.path.isabs(p) else os.path.join(IMG_DIR, p)).convert("RGB")
         x = self.tf(img)
         y_cls = CLASSES.index(r["category"])
         y_force = torch.tensor([
-            float(r["min_grasp_force_N"]) / MIN_SCALE,
+            float(r["f_min_value"]) / MIN_SCALE,
             float(r["max_safe_force_N"]) / MAX_SCALE,
         ], dtype=torch.float32)
         return x, y_cls, y_force
@@ -96,8 +101,8 @@ class SingleStreamModel(nn.Module):
         return self.classifier(f), self.regressor(f)
 
 
-def load_rows():
-    with open(DATA_CSV, newline="", encoding="utf-8-sig") as f:
+def load_rows(csv_path=DATA_CSV):
+    with open(csv_path, newline="", encoding="utf-8-sig") as f:
         return list(csv.DictReader(f))
 
 
@@ -145,8 +150,24 @@ def evaluate(model, loader):
 
 
 def main():
-    rows = load_rows()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--csv", default=DATA_CSV, help="主标注 CSV(默认 07 表)")
+    ap.add_argument("--aug-csv", default=None,
+                    help="增强标签 CSV, 其图片全部只进训练集(规范: 增强不进验证/测试)")
+    ap.add_argument("--auto-weight", action="store_true",
+                    help="分类损失按训练集各类图片数反比加权")
+    ap.add_argument("--out", default=MODEL_OUT, help="模型保存路径")
+    args = ap.parse_args()
+
+    rows = load_rows(args.csv)
     train_rows, val_rows = stratified_split(rows)
+    if args.aug_csv:
+        with open(args.aug_csv, newline="", encoding="utf-8-sig") as f:
+            aug = [r for r in csv.DictReader(f) if r.get("category") in CLASSES]
+        train_rows = train_rows + aug
+        random.shuffle(train_rows)
+        print(f"增强: +{len(aug)} 张(全部进训练集)")
+
     print(f"训练 {len(train_rows)} 张 / 验证 {len(val_rows)} 张, 设备 {DEVICE}")
     for c in CLASSES:
         print(f"  {c}: 训练 {sum(1 for r in train_rows if r['category']==c)}"
@@ -158,7 +179,15 @@ def main():
                             batch_size=BATCH, shuffle=False, num_workers=0)
 
     model = SingleStreamModel().to(DEVICE)
-    ce = nn.CrossEntropyLoss(label_smoothing=0.1)
+    if args.auto_weight:
+        cnt = Counter(r["category"] for r in train_rows)
+        mx = max(cnt.values())
+        w = torch.tensor([mx / max(cnt.get(c, 1), 1) for c in CLASSES],
+                         dtype=torch.float32).to(DEVICE)
+        ce = nn.CrossEntropyLoss(weight=w, label_smoothing=0.1)
+        print(f"类别权重: {dict(zip(CLASSES, [round(x, 2) for x in w.tolist()]))}")
+    else:
+        ce = nn.CrossEntropyLoss(label_smoothing=0.1)
     reg = nn.SmoothL1Loss()
 
     best_acc, best_mae = -1.0, float("inf")
@@ -192,7 +221,9 @@ def main():
         if acc > best_acc or (acc == best_acc and mae_min + mae_max < best_mae):
             best_acc, best_mae = acc, mae_min + mae_max
             no_improve = 0
-            os.makedirs(os.path.dirname(MODEL_OUT), exist_ok=True)
+            out_dir = os.path.dirname(args.out)
+            if out_dir:
+                os.makedirs(out_dir, exist_ok=True)
             torch.save({
                 "model": model.state_dict(),
                 "classes": CLASSES,
@@ -201,7 +232,7 @@ def main():
                 "val_acc": acc,
                 "val_mae_min": mae_min,
                 "val_mae_max": mae_max,
-            }, MODEL_OUT)
+            }, args.out)
             mark = " <- 保存最优"
         else:
             no_improve += 1

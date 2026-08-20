@@ -9,7 +9,9 @@ import sys
 E_LIB = r"E:\Lib\site-packages"
 if os.path.isdir(E_LIB) and E_LIB not in sys.path:
     sys.path.insert(0, E_LIB)
-sys.path.insert(0, r"E:\A-触觉机器学习\ExpForce单流模型")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_HERE, ".."))
+sys.path.insert(0, os.path.join(_REPO_ROOT, "ExpForce单流模型"))
 
 import torch
 from PIL import Image
@@ -17,7 +19,7 @@ from torchvision import transforms
 from train_expforce_single import SingleStreamModel, MEAN, STD, IMG_SIZE, DEVICE
 from predict_expforce_single import load_model, tf
 
-REAL_DIR = r"E:\A-触觉机器学习\图像力预测模型\real_images"
+REAL_DIR = os.path.join(_REPO_ROOT, "图像力预测模型", "real_images")
 PREFIX2CLS = {
     "metal": "刚体", "hard_plastic": "刚体", "wood_paper": "刚体",
     "foam_soft": "柔性", "leather_textile": "柔性",
@@ -26,7 +28,11 @@ PREFIX2CLS = {
 
 
 def main():
-    model, classes, ckpt = load_model()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default=None, help="模型权重路径(默认 predict 脚本内置路径)")
+    args = ap.parse_args()
+    model, classes, ckpt = load_model(args.model) if args.model else load_model()
     print(f"模型: 验证集准确率 {ckpt['val_acc']:.2%} (同相机留出集)\n")
 
     rows = []
