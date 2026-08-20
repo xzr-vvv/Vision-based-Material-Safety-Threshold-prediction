@@ -1,0 +1,1202 @@
+[
+ {
+  "file": "foam_soft_01_kitchen_sponge.jpg",
+  "truth": "柔性",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.6035566472591377,
+   "易碎": 0.3964433527408623
+  },
+  "f_min": 0.6466717818512978,
+  "f_max": 1.4442327255173801,
+  "neighbors": [
+   [
+    "Blackberry 1",
+    "柔性",
+    0.5996647477149963
+   ],
+   [
+    "Glass tumbler",
+    "易碎",
+    0.5714515447616577
+   ],
+   [
+    "Oreo Thin cookie pack",
+    "柔性",
+    0.5694743394851685
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.5688234567642212
+   ],
+   [
+    "Large marshmallow",
+    "柔性",
+    0.5668480396270752
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "foam_soft_02_kitchen_sponge.jpg",
+  "truth": "柔性",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.40162129075531905,
+   "易碎": 0.598378709244681
+  },
+  "f_min": 0.7997532438701951,
+  "f_max": 1.69991181042922,
+  "neighbors": [
+   [
+    "Marshmallow 3 (regular)",
+    "柔性",
+    0.5369088053703308
+   ],
+   [
+    "Ceramic mug",
+    "易碎",
+    0.5361229181289673
+   ],
+   [
+    "Medium paper cup",
+    "柔性",
+    0.5293487906455994
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.5275434255599976
+   ],
+   [
+    "Margarita glass",
+    "易碎",
+    0.5249592065811157
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "foam_soft_03_kitchen_sponge.jpg",
+  "truth": "柔性",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 1.0,
+   "易碎": 0.0
+  },
+  "f_min": 0.7035653779421528,
+  "f_max": 2.1106961338264583,
+  "neighbors": [
+   [
+    "Strawberry (large)",
+    "柔性",
+    0.303385466337204
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.3023354709148407
+   ],
+   [
+    "Strawberry 2",
+    "柔性",
+    0.2990726828575134
+   ],
+   [
+    "Strawberry 1",
+    "柔性",
+    0.2924973964691162
+   ],
+   [
+    "Mini bell pepper 2",
+    "柔性",
+    0.2904888391494751
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "foam_soft_04_kitchen_sponge.jpg",
+  "truth": "柔性",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.19971453945505885,
+   "柔性": 0.6002468875390818,
+   "易碎": 0.20003857300585934
+  },
+  "f_min": 0.7991021929870418,
+  "f_max": 2.696392337817513,
+  "neighbors": [
+   [
+    "Blueberry",
+    "柔性",
+    0.5926620960235596
+   ],
+   [
+    "Blackberry 1",
+    "柔性",
+    0.5893664360046387
+   ],
+   [
+    "Glass tumbler",
+    "易碎",
+    0.5873053669929504
+   ],
+   [
+    "H-E-B Vitamins Melatonin 5 mg Gummies - Strawberry",
+    "刚体",
+    0.5863540172576904
+   ],
+   [
+    "Green grape tomato 1",
+    "柔性",
+    0.5802726745605469
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "foam_soft_05_kitchen_sponge.jpg",
+  "truth": "柔性",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.3923516102121659,
+   "柔性": 0.4137455598646169,
+   "易碎": 0.19390282992321714
+  },
+  "f_min": 1.9790482625748176,
+  "f_max": 8.297957637903654,
+  "neighbors": [
+   [
+    "Banana",
+    "柔性",
+    0.6441612243652344
+   ],
+   [
+    "Large lemon",
+    "柔性",
+    0.635916531085968
+   ],
+   [
+    "Peeler",
+    "刚体",
+    0.6085115075111389
+   ],
+   [
+    "Skippy creamy peanut butter",
+    "刚体",
+    0.6053760051727295
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5999114513397217
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "fragile_glass_01_wine_glass.jpg",
+  "truth": "易碎",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.0,
+   "易碎": 1.0
+  },
+  "f_min": 1.1884417428053002,
+  "f_max": 2.3768834856106005,
+  "neighbors": [
+   [
+    "Margarita glass",
+    "易碎",
+    0.688174843788147
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.661064863204956
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.6083722114562988
+   ],
+   [
+    "Champagne glass",
+    "易碎",
+    0.5982357263565063
+   ],
+   [
+    "Glass tumbler",
+    "易碎",
+    0.5695316195487976
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "fragile_glass_02_glass_bottle.jpg",
+  "truth": "易碎",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.20333686986503208,
+   "柔性": 0.0,
+   "易碎": 0.7966631301349679
+  },
+  "f_min": 1.5071771912585785,
+  "f_max": 4.99688886370122,
+  "neighbors": [
+   [
+    "Blueberry jam jar (Empty)",
+    "易碎",
+    0.5830951929092407
+   ],
+   [
+    "Clorox toilet bleach cleaner bottle",
+    "刚体",
+    0.5828703045845032
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5763038396835327
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.5630122423171997
+   ],
+   [
+    "Margarita glass",
+    "易碎",
+    0.5612438321113586
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "fragile_glass_03_wine_glass.jpg",
+  "truth": "易碎",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.18597190418562476,
+   "易碎": 0.8140280958143753
+  },
+  "f_min": 1.0026180567083554,
+  "f_max": 2.098222065509523,
+  "neighbors": [
+   [
+    "Margarita glass",
+    "易碎",
+    0.6123620271682739
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.6005626916885376
+   ],
+   [
+    "Champagne glass",
+    "易碎",
+    0.5443447232246399
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5394880771636963
+   ],
+   [
+    "Strawberry 1",
+    "柔性",
+    0.5247145295143127
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "fragile_glass_04_wine_glass.jpg",
+  "truth": "易碎",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.18880237004129427,
+   "柔性": 0.0,
+   "易碎": 0.8111976299587057
+  },
+  "f_min": 1.2928589368682177,
+  "f_max": 3.718532093984201,
+  "neighbors": [
+   [
+    "Margarita glass",
+    "易碎",
+    0.6519951224327087
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.6488670110702515
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.645788848400116
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5886588096618652
+   ],
+   [
+    "Champagne glass",
+    "易碎",
+    0.5825473070144653
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "fragile_glass_05_wine_glass.jpg",
+  "truth": "易碎",
+  "pred": "易碎",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.0,
+   "易碎": 1.0
+  },
+  "f_min": 1.1880483679015252,
+  "f_max": 2.3760967358030505,
+  "neighbors": [
+   [
+    "Margarita glass",
+    "易碎",
+    0.6768728494644165
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.6480222940444946
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5911840200424194
+   ],
+   [
+    "Champagne glass",
+    "易碎",
+    0.5870621204376221
+   ],
+   [
+    "Glass tumbler",
+    "易碎",
+    0.5613678693771362
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "hard_plastic_01_lego_brick.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.6017190388339826,
+   "柔性": 0.19977965781351212,
+   "易碎": 0.1985013033525053
+  },
+  "f_min": 2.495345621722326,
+  "f_max": 10.588409017840817,
+  "neighbors": [
+   [
+    "Cheez-It crackers box",
+    "刚体",
+    0.6067854762077332
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5965449810028076
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.5963890552520752
+   ],
+   [
+    "Peeler",
+    "刚体",
+    0.5929417610168457
+   ],
+   [
+    "Glass Coca-Cola bottle",
+    "易碎",
+    0.5925728678703308
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "hard_plastic_02_lego_brick.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.6025534163481288,
+   "柔性": 0.20176867576920582,
+   "易碎": 0.1956779078826654
+  },
+  "f_min": 3.2001812535321315,
+  "f_max": 14.129784607002255,
+  "neighbors": [
+   [
+    "OxiClean container (12 oz)",
+    "刚体",
+    0.4236818850040436
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.4105069041252136
+   ],
+   [
+    "Handheld Power Drill",
+    "刚体",
+    0.40632617473602295
+   ],
+   [
+    "Glass Coca-Cola bottle",
+    "易碎",
+    0.39811497926712036
+   ],
+   [
+    "Generic AC Power Adapter",
+    "刚体",
+    0.3959123492240906
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "hard_plastic_03_lego_brick.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 1.0,
+   "柔性": 0.0,
+   "易碎": 0.0
+  },
+  "f_min": 2.348012121946943,
+  "f_max": 11.740060609734714,
+  "neighbors": [
+   [
+    "Tomato soup can",
+    "刚体",
+    0.5598889589309692
+   ],
+   [
+    "Tabletop mobile phone stand",
+    "刚体",
+    0.5507912039756775
+   ],
+   [
+    "Generic Phone Charger Adapter",
+    "刚体",
+    0.5446165204048157
+   ],
+   [
+    "OxiClean container (12 oz)",
+    "刚体",
+    0.5442163348197937
+   ],
+   [
+    "Yellow mustard bottle",
+    "刚体",
+    0.5387133359909058
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "hard_plastic_04_lego_brick.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 1.0,
+   "柔性": 0.0,
+   "易碎": 0.0
+  },
+  "f_min": 2.450075838556436,
+  "f_max": 12.25037919278218,
+  "neighbors": [
+   [
+    "Clorox toilet bleach cleaner bottle",
+    "刚体",
+    0.5933880805969238
+   ],
+   [
+    "Protein shaker bottle",
+    "刚体",
+    0.5900090932846069
+   ],
+   [
+    "Cheez-It crackers box",
+    "刚体",
+    0.5894620418548584
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5870411992073059
+   ],
+   [
+    "OxiClean container (12 oz)",
+    "刚体",
+    0.582624077796936
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "hard_plastic_05_lego_brick.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8013880443454433,
+   "柔性": 0.19861195565455672,
+   "易碎": 0.0
+  },
+  "f_min": 2.0491964558049416,
+  "f_max": 9.848758367715595,
+  "neighbors": [
+   [
+    "Protein shaker bottle",
+    "刚体",
+    0.5884170532226562
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5866992473602295
+   ],
+   [
+    "Cheez-It crackers box",
+    "刚体",
+    0.5862283706665039
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.580003559589386
+   ],
+   [
+    "Clorox toilet bleach cleaner bottle",
+    "刚体",
+    0.5789369940757751
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "leather_textile_01_leather_gloves.jpg",
+  "truth": "柔性",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.20313742269999485,
+   "柔性": 0.4013966223266837,
+   "易碎": 0.39546595497332143
+  },
+  "f_min": 1.299024171032189,
+  "f_max": 4.11101882622323,
+  "neighbors": [
+   [
+    "Banana",
+    "柔性",
+    0.4582676887512207
+   ],
+   [
+    "Umbrella (Folded)",
+    "刚体",
+    0.456461638212204
+   ],
+   [
+    "Margarita glass",
+    "易碎",
+    0.4460467994213104
+   ],
+   [
+    "Red apple 3",
+    "柔性",
+    0.44369393587112427
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.44258826971054077
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "leather_textile_02_leather_wallet.jpg",
+  "truth": "柔性",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8012002682142617,
+   "柔性": 0.1987997317857383,
+   "易碎": 0.0
+  },
+  "f_min": 1.6552575356090395,
+  "f_max": 8.07748794625946,
+  "neighbors": [
+   [
+    "Generic AC Power Adapter",
+    "刚体",
+    0.547415018081665
+   ],
+   [
+    "Apple MacBook Power Adapter",
+    "刚体",
+    0.533042848110199
+   ],
+   [
+    "Seaweed snack package",
+    "柔性",
+    0.5298276543617249
+   ],
+   [
+    "Umbrella (Folded)",
+    "刚体",
+    0.5289794206619263
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5258677005767822
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "leather_textile_03_leather_wallet.jpg",
+  "truth": "柔性",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.7978947142321478,
+   "柔性": 0.20210528576785228,
+   "易碎": 0.0
+  },
+  "f_min": 1.7460170093849592,
+  "f_max": 8.32587447538909,
+  "neighbors": [
+   [
+    "Apple MacBook Power Adapter",
+    "刚体",
+    0.3618081212043762
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.33874380588531494
+   ],
+   [
+    "Generic AC Power Adapter",
+    "刚体",
+    0.3270912766456604
+   ],
+   [
+    "Spam canned meat",
+    "刚体",
+    0.3255921006202698
+   ],
+   [
+    "Generic Phone Charger Adapter",
+    "刚体",
+    0.3228406310081482
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "leather_textile_04_leather_wallet.jpg",
+  "truth": "柔性",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.6129504543379342,
+   "柔性": 0.38704954566206584,
+   "易碎": 0.0
+  },
+  "f_min": 1.6084191025919232,
+  "f_max": 7.362802941741205,
+  "neighbors": [
+   [
+    "Apple MacBook Power Adapter",
+    "刚体",
+    0.46317780017852783
+   ],
+   [
+    "Generic AC Power Adapter",
+    "刚体",
+    0.40909796953201294
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.4087381660938263
+   ],
+   [
+    "Tabletop mobile phone stand",
+    "刚体",
+    0.3966701328754425
+   ],
+   [
+    "Large lemon",
+    "柔性",
+    0.3925418257713318
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "leather_textile_05_leather_wallet.jpg",
+  "truth": "柔性",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.40332870165819246,
+   "柔性": 0.2026950487616004,
+   "易碎": 0.39397624958020716
+  },
+  "f_min": 1.1955057463803416,
+  "f_max": 4.54967296838802,
+  "neighbors": [
+   [
+    "Umbrella (Folded)",
+    "刚体",
+    0.5515762567520142
+   ],
+   [
+    "Oreo Thin cookie pack",
+    "柔性",
+    0.5375352501869202
+   ],
+   [
+    "Blueberry jam jar (Empty)",
+    "易碎",
+    0.5261272192001343
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5186744332313538
+   ],
+   [
+    "Magic tape roll",
+    "刚体",
+    0.5180275440216064
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "metal_01_wrench.jpg",
+  "truth": "刚体",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.20288660112676116,
+   "柔性": 0.6019347298691963,
+   "易碎": 0.19517866900404254
+  },
+  "f_min": 1.9094927734983953,
+  "f_max": 7.464576328256734,
+  "neighbors": [
+   [
+    "Banana",
+    "柔性",
+    0.5647585391998291
+   ],
+   [
+    "OxiClean stain remover (21.5 oz)",
+    "刚体",
+    0.5442502498626709
+   ],
+   [
+    "Green apple",
+    "柔性",
+    0.5259337425231934
+   ],
+   [
+    "Mini bell pepper 1",
+    "柔性",
+    0.5240182280540466
+   ],
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5235734581947327
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "metal_02_wrench.png",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8055598612948275,
+   "柔性": 0.1944401387051725,
+   "易碎": 0.0
+  },
+  "f_min": 2.475450676475135,
+  "f_max": 12.280033313023088,
+  "neighbors": [
+   [
+    "OxiClean stain remover (21.5 oz)",
+    "刚体",
+    0.46863311529159546
+   ],
+   [
+    "H-E-B Pink Salt refill",
+    "刚体",
+    0.4610956609249115
+   ],
+   [
+    "H-E-B Vitamins Melatonin 5 mg Gummies - Strawberry",
+    "刚体",
+    0.4557771682739258
+   ],
+   [
+    "OxiClean container (12 oz)",
+    "刚体",
+    0.44208797812461853
+   ],
+   [
+    "Yellow drinking straw",
+    "柔性",
+    0.44113123416900635
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "metal_03_wrench.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8053565666142084,
+   "柔性": 0.19464343338579165,
+   "易碎": 0.0
+  },
+  "f_min": 4.1496512978008475,
+  "f_max": 20.164326188846864,
+  "neighbors": [
+   [
+    "Handheld Power Drill",
+    "刚体",
+    0.5229014754295349
+   ],
+   [
+    "Peeler",
+    "刚体",
+    0.5048717856407166
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.4882098138332367
+   ],
+   [
+    "Apple (organic)",
+    "柔性",
+    0.4821018576622009
+   ],
+   [
+    "OxiClean stain remover (21.5 oz)",
+    "刚体",
+    0.47876131534576416
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "metal_04_hammer.jpg",
+  "truth": "刚体",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.0,
+   "柔性": 0.6027086236595728,
+   "易碎": 0.3972913763404272
+  },
+  "f_min": 1.0995829791469283,
+  "f_max": 3.100103249270571,
+  "neighbors": [
+   [
+    "Banana",
+    "柔性",
+    0.35430699586868286
+   ],
+   [
+    "Apple (organic)",
+    "柔性",
+    0.34679657220840454
+   ],
+   [
+    "Large white egg",
+    "易碎",
+    0.345442533493042
+   ],
+   [
+    "Grapefruit",
+    "柔性",
+    0.3434726595878601
+   ],
+   [
+    "Large brown egg",
+    "易碎",
+    0.3431175947189331
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "metal_05_hammer.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8010612366162702,
+   "柔性": 0.1989387633837298,
+   "易碎": 0.0
+  },
+  "f_min": 1.9969774012189154,
+  "f_max": 9.785948242710848,
+  "neighbors": [
+   [
+    "Duct tape roll",
+    "刚体",
+    0.5611708760261536
+   ],
+   [
+    "Red Bull can (355 ml)",
+    "刚体",
+    0.5532549619674683
+   ],
+   [
+    "Sweet bean paste (28oz)",
+    "刚体",
+    0.5512434244155884
+   ],
+   [
+    "Green grape 2",
+    "柔性",
+    0.5496622323989868
+   ],
+   [
+    "H-E-B Pink Salt refill",
+    "刚体",
+    0.5476405024528503
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "wood_paper_01_wooden_block.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.6002911107823576,
+   "柔性": 0.3997088892176423,
+   "易碎": 0.0
+  },
+  "f_min": 1.1013820733197115,
+  "f_max": 5.307055921989736,
+  "neighbors": [
+   [
+    "Marshmallow 3 (regular)",
+    "柔性",
+    0.5856122970581055
+   ],
+   [
+    "H-E-B Vitamins Melatonin 5 mg Gummies - Strawberry",
+    "刚体",
+    0.5821224451065063
+   ],
+   [
+    "H-E-B Pink Salt refill",
+    "刚体",
+    0.5770367383956909
+   ],
+   [
+    "Duct tape roll",
+    "刚体",
+    0.5715717673301697
+   ],
+   [
+    "Medium paper cup",
+    "柔性",
+    0.5668094754219055
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "wood_paper_02_wooden_block.jpg",
+  "truth": "刚体",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.39462156767595846,
+   "柔性": 0.40343914824347793,
+   "易碎": 0.2019392840805636
+  },
+  "f_min": 1.595935600282312,
+  "f_max": 5.9548849375087025,
+  "neighbors": [
+   [
+    "Banana",
+    "柔性",
+    0.5306030511856079
+   ],
+   [
+    "Glass Coca-Cola bottle",
+    "易碎",
+    0.520937979221344
+   ],
+   [
+    "Duct tape roll",
+    "刚体",
+    0.5119876861572266
+   ],
+   [
+    "Marshmallow 3 (regular)",
+    "柔性",
+    0.5101393461227417
+   ],
+   [
+    "Clorox toilet bleach cleaner bottle",
+    "刚体",
+    0.5060082077980042
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "wood_paper_03_wooden_block.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.6051692309922132,
+   "柔性": 0.0,
+   "易碎": 0.39483076900778674
+  },
+  "f_min": 2.313969968590014,
+  "f_max": 10.089223572404396,
+  "neighbors": [
+   [
+    "Peeler",
+    "刚体",
+    0.5553110837936401
+   ],
+   [
+    "Protein shaker bottle",
+    "刚体",
+    0.5543930530548096
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.542793869972229
+   ],
+   [
+    "Ceramic mug",
+    "易碎",
+    0.5390897393226624
+   ],
+   [
+    "Wine glass",
+    "易碎",
+    0.5390501022338867
+   ]
+  ],
+  "correct": true
+ },
+ {
+  "file": "wood_paper_04_wooden_block.jpg",
+  "truth": "刚体",
+  "pred": "柔性",
+  "vote_share": {
+   "刚体": 0.39746296731474906,
+   "柔性": 0.3992411567309076,
+   "易碎": 0.2032958759543433
+  },
+  "f_min": 1.990672746901066,
+  "f_max": 8.436780295184583,
+  "neighbors": [
+   [
+    "Glass whiskey cup",
+    "易碎",
+    0.5374009609222412
+   ],
+   [
+    "Banana",
+    "柔性",
+    0.5353257656097412
+   ],
+   [
+    "7UP Tropical soda (zero)",
+    "刚体",
+    0.5308578014373779
+   ],
+   [
+    "Strawberry 1",
+    "柔性",
+    0.520045280456543
+   ],
+   [
+    "Peeler",
+    "刚体",
+    0.5198127031326294
+   ]
+  ],
+  "correct": false
+ },
+ {
+  "file": "wood_paper_05_wooden_block.jpg",
+  "truth": "刚体",
+  "pred": "刚体",
+  "vote_share": {
+   "刚体": 0.8053186795907586,
+   "柔性": 0.19468132040924133,
+   "易碎": 0.0
+  },
+  "f_min": 1.0036521477840399,
+  "f_max": 4.920920078715579,
+  "neighbors": [
+   [
+    "Duct tape roll",
+    "刚体",
+    0.6282291412353516
+   ],
+   [
+    "H-E-B Pink Salt refill",
+    "刚体",
+    0.5753788948059082
+   ],
+   [
+    "Plastic shot cup (2 oz)",
+    "刚体",
+    0.5704256892204285
+   ],
+   [
+    "Generic Phone Charger Adapter",
+    "刚体",
+    0.5679872632026672
+   ],
+   [
+    "Large marshmallow",
+    "柔性",
+    0.5661705732345581
+   ]
+  ],
+  "correct": true
+ }
+]
