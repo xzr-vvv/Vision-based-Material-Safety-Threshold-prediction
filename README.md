@@ -1,5 +1,8 @@
 ﻿# 机械臂抓取安全压力范围——触觉数据集合集（v3）
 
+> 当前主项目代号 **V-MaST**（**V**ision-based **Ma**terial **S**afety **T**hreshold
+> prediction，基于视觉的材料安全阈值预测）——详见「〇·二」节。
+
 来源页面：https://github.com/RLCL-EIT/robotics_arxiv_daily （Tactile / Visuo-Tactile 板块）
 筛选主题：机械臂/夹爪抓取物体时的接触力、抓取压力、安全（不损伤物体）力范围。
 分类：刚体、柔性物体、易碎物品。
@@ -103,10 +106,15 @@ Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源�
 - 数据：https://huggingface.co/datasets/NathanWu7/Isaaclab_Libero 与 china-sae-robotics/Tactile_Manipulation_Dataset
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-〇·二、自采数据与模型 v2（当前工作重心）
+〇·二、V-MaST 自采数据与模型 v2（当前工作重心）
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-【数据采集准备/】RGB-D 自采物体清单（2026-08-19）
+项目代号 **V-MaST**（**V**ision-based **Ma**terial **S**afety **T**hreshold
+prediction，基于视觉的材料安全阈值预测）：以 RGB 视觉先验（DINOv2 特征 +
+PaliGemma VLM 语义检索）预测物体材料类别与抓取安全力阈值（f_min / f_max），
+集成于 π0.5 VLA。数据集：RGB_dataset/（结构见其 README_数据集结构说明.md）。
+
+【数据采集准备/】RGB 自采物体清单（2026-08-19）
 - 物体清单.html —— 三类物体各 60 个候选（易碎优先，公开 RGB-D 数据为零），
   每类前 30 个为首批必采（满足规范 A 级"最低可启动"线）；含分类边界速查、
   采购渠道与预算（全部 180 个约 ¥1100，首批约 ¥570）；浏览器打开可勾选追踪收集进度。

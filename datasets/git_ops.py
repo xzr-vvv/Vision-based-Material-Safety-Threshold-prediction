@@ -56,9 +56,33 @@ def commit(paths_by_label):
     return sha
 
 
+def load_credentials():
+    """按顺序读取凭据文件: E:\.git-credentials(符合不放C盘约定) -> 用户目录"""
+    for path in [r"E:\.git-credentials", os.path.expanduser("~\\.git-credentials")]:
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if "github.com" in line and ":" in line:
+                        # 格式: https://xzr-vvv:TOKEN@github.com
+                        body = line.split("://", 1)[1]
+                        body = body.rsplit("@", 1)[0]
+                        user, token = body.split(":", 1)
+                        return user, token
+        except OSError:
+            continue
+    return None, None
+
+
 def push():
+    user, token = load_credentials()
+    if not token:
+        print("未找到凭据: 请在 E:\\.git-credentials 写入一行")
+        print("https://xzr-vvv:你的TOKEN@github.com")
+        return
     repo = porcelain.open_repo(ROOT)
-    res = porcelain.push(repo, "https://github.com/xzr-vvv/mlproject.git", "refs/heads/main")
+    res = porcelain.push(repo, "https://github.com/xzr-vvv/mlproject.git",
+                         "refs/heads/main", username=user, password=token)
     print("push 结果:", res)
 
 

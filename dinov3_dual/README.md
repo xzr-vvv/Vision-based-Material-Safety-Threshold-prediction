@@ -3,6 +3,10 @@
 对应技术方案中的**第一模块**（唯一任务）：输入 **RGB-D 配对图片**，输出**物体类别 + 初始安全抓力区间**。
 不使用伪深度——深度图由你的 RGB-D 相机实测提供。
 
+> **当前阶段（0820 起）：只采 RGB，不采深度图。** 自采数据放
+> `E:\A-触觉机器学习\RGB_dataset\{叶类}\{物体ID}\`，训练路径为单流
+> DINOv2 冻结 + L1/L2 分层头；本模块的双流流程等配对真实深度数据到位后再启用。
+
 ## 架构
 
 ```
@@ -17,18 +21,19 @@ RGB 图片  ──> DINOv3 ViT-L（冻结）──────────> 1024
 - 力回归输出 (μ, σ)，推荐抓力 = μ + z·σ（防滑高分位），封顶 = k·μ（损坏上限）
 - 评估含掉落违规率、80% 区间覆盖率（来自方案报告的评价思想）
 
-## 数据集格式（你负责拍照，程序负责其余）
+## 数据集格式（当前阶段仅 RGB，你负责拍照，程序负责其余）
 
 ```
-E:\A-机器学习\RGBD_dataset\
-├─ 刚体\   obj001.png  obj001_depth.png   （RGB 与深度同目录同名，深度加 _depth 后缀）
-├─ 柔性\   ...
-├─ 易碎\   ...
-└─ labels.csv   （由 check_dataset.py 自动生成，力值默认取 Exp-Force 同类中位数，可手改）
+E:\A-触觉机器学习\RGB_dataset\
+├─ 轻脆\{物体ID}\s0.png ~ s14.png   （每物体 3 视角 × ≥5 张）
+├─ 重脆\{物体ID}\...
+├─ 刚体\{物体ID}\...
+├─ 柔性\{物体ID}\...
+└─ labels.csv   （由 check_dataset.py 自动生成，力值列留空待实测）
 ```
 
-深度图也接受 `depth\` 子目录同名文件；支持 16-bit PNG（毫米）、8-bit 灰度、`.npy`（米）。
-16-bit PNG（RealSense/D435 默认导出）直接放入即可，程序自动识别单位。
+深度图当前不采集。未来若为 v2 双流补采：与 RGB 同目录同名加 `_depth` 后缀，
+必须为 RGB-D 相机直出的 16-bit PNG 毫米制（禁伪深度）。
 
 ## 环境配置（一次性）
 
@@ -47,10 +52,11 @@ DINOv3 走 GitHub，卡住再开 VPN；失败会自动回退 DINOv2（日志明�
 ```powershell
 cd E:\A-触觉机器学习\dinov3_dual
 
-# ① 拍好图放入 RGBD_dataset 后，检查配对并生成 labels.csv
+# ① 拍好图放入 RGB_dataset 后，检查完整性并生成 labels.csv
 python check_dataset.py --make-labels
-#    然后打开 labels.csv，把力值换成实测值（或保留 Exp-Force 平移默认值）
+#    然后打开 labels.csv，填入实测力值（生成时留空，禁止填估计值）
 
+# ②~④ 为双流(v2)流程，需配对深度图，当前阶段暂缓，仅作未来参考
 # ② 提取双流特征并缓存（每张约 2-5 秒 CPU / <0.5 秒 GPU，只跑一次）
 python extract_features.py
 
@@ -58,7 +64,7 @@ python extract_features.py
 python train.py
 
 # ④ 推理
-python predict.py --image "RGBD_dataset\易碎\glass1.png"        # 单张（自动找 glass1_depth.png）
+python predict.py --image "RGB_dataset\重脆\FRA001\s0.png"      # 单张（自动找 s0_depth.png）
 python predict.py --image xx.png --depth xx_depth.png          # 显式指定深度图
 python predict.py --folder "E:\某个文件夹"                       # 批量（仅配有深度的图）
 python predict.py --image xx.png --risk 0.95                   # 更保守的防滑水平

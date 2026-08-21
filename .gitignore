@@ -19,3 +19,19 @@ __pycache__/
 # 大体积压缩包（超过 GitHub 100MB 单文件限制）
 *.zip
 project-tech-report/
+
+# 交付包（数据要求 v1 §5：不入 Git，压缩传输）
+safety_vtla_data_delivery_20260821/
+
+# 骨干权重缓存（.pth/.safetensors 超 100MB 限制，README 已附下载方式）
+dinov3_dual/model_cache/
+*.safetensors
+
+# 第三方下载数据（ycb_rgbd 原始图、cornell，README 已附链接，脚本可重建）
+datasets/ycb_rgbd/test/
+datasets/ycb_rgbd/pairs/
+datasets/cornell_grasping/
+
+# 采集与运行日志
+*.log
+*.err

@@ -1,0 +1,1878 @@
+{
+ "FRA001": {
+  "cat": "Drinking glasses",
+  "terms": [
+   "drinking glass tumbler",
+   "glass tumbler",
+   "drinking glass"
+  ]
+ },
+ "FRA002": {
+  "cat": "Drinking glasses",
+  "terms": [
+   "glass tumbler",
+   "drinking glass",
+   "water glass"
+  ]
+ },
+ "FRA003": {
+  "cat": "Wine glasses",
+  "terms": [
+   "red wine glass",
+   "wine glasses",
+   "wine glass stemware"
+  ]
+ },
+ "FRA004": {
+  "cat": "Glass teapots",
+  "terms": [
+   "glass teapot",
+   "glass tea pot",
+   "teapot glass"
+  ]
+ },
+ "FRA005": {
+  "cat": "Soda bottles",
+  "terms": [
+   "glass soda bottle",
+   "empty glass bottle",
+   "glass bottle"
+  ]
+ },
+ "FRA006": {
+  "cat": "Honey jars",
+  "terms": [
+   "honey jar",
+   "glass honey jar",
+   "honey pot"
+  ]
+ },
+ "FRA007": {
+  "cat": "Glass vases",
+  "terms": [
+   "glass vase",
+   "small glass vase",
+   "vase"
+  ]
+ },
+ "FRA008": {
+  "cat": "Picture frames",
+  "terms": [
+   "picture frame",
+   "photo frame",
+   "glass picture frame"
+  ]
+ },
+ "FRA009": {
+  "cat": "Christmas baubles",
+  "terms": [
+   "christmas bauble",
+   "christmas ornament",
+   "christmas ball ornament"
+  ]
+ },
+ "FRA010": {
+  "cat": "Ceramic mugs",
+  "terms": [
+   "ceramic mug",
+   "coffee mug",
+   "stoneware mug"
+  ]
+ },
+ "FRA011": {
+  "cat": "Teacups",
+  "terms": [
+   "porcelain tea cup",
+   "chinese tea cup",
+   "tea cup"
+  ]
+ },
+ "FRA012": {
+  "cat": "Rice bowls",
+  "terms": [
+   "chinese rice bowl",
+   "porcelain rice bowl",
+   "rice bowl"
+  ]
+ },
+ "FRA013": {
+  "cat": "Plates (tableware)",
+  "terms": [
+   "porcelain plate",
+   "ceramic plate",
+   "white porcelain plate"
+  ]
+ },
+ "FRA014": {
+  "cat": "Ceramic figurines",
+  "terms": [
+   "ceramic figurine",
+   "porcelain figurine",
+   "ceramic animal figurine"
+  ]
+ },
+ "FRA015": {
+  "cat": "Piggy banks",
+  "terms": [
+   "piggy bank",
+   "ceramic piggy bank",
+   "money box"
+  ]
+ },
+ "FRA016": {
+  "cat": "Paper cups",
+  "terms": [
+   "paper cup",
+   "disposable paper cup",
+   "paper cups"
+  ]
+ },
+ "FRA017": {
+  "cat": "Beverage cans",
+  "terms": [
+   "aluminium beverage can",
+   "empty aluminium can",
+   "soda can"
+  ]
+ },
+ "FRA018": {
+  "cat": "Table tennis balls",
+  "terms": [
+   "table tennis balls white",
+   "ping pong balls",
+   "table tennis ball"
+  ]
+ },
+ "FRA019": {
+  "cat": null,
+  "terms": [
+   "potato chips bag",
+   "bag of potato chips",
+   "potato chips packet"
+  ]
+ },
+ "FRA020": {
+  "cat": "Crackers (food)",
+  "terms": [
+   "cream crackers",
+   "cracker biscuits",
+   "crackers package"
+  ]
+ },
+ "FRA021": {
+  "cat": null,
+  "terms": [
+   "biscuit roll",
+   "wafer roll",
+   "egg roll snack"
+  ]
+ },
+ "FRA022": {
+  "cat": "Instant noodles",
+  "terms": [
+   "instant noodles block",
+   "instant ramen",
+   "instant noodles"
+  ]
+ },
+ "FRA023": {
+  "cat": "Egg tarts",
+  "terms": [
+   "egg tart",
+   "egg tarts",
+   "portuguese egg tart"
+  ]
+ },
+ "FRA024": {
+  "cat": "Chicken eggs",
+  "terms": [
+   "raw chicken egg",
+   "chicken egg",
+   "raw egg"
+  ]
+ },
+ "FRA025": {
+  "cat": "Century eggs",
+  "terms": [
+   "century egg",
+   "century eggs",
+   "preserved egg"
+  ]
+ },
+ "FRA026": {
+  "cat": "Walnuts",
+  "terms": [
+   "walnut shell",
+   "walnuts in shell",
+   "walnut"
+  ]
+ },
+ "FRA027": {
+  "cat": null,
+  "terms": [
+   "dried noodles",
+   "chinese dried noodles",
+   "noodle bundle"
+  ]
+ },
+ "FRA028": {
+  "cat": "Chalk",
+  "terms": [
+   "blackboard chalk",
+   "chalk sticks",
+   "school chalk"
+  ]
+ },
+ "FRA029": {
+  "cat": "Pillar candles",
+  "terms": [
+   "pillar candle",
+   "white pillar candle",
+   "candles"
+  ]
+ },
+ "FRA030": {
+  "cat": null,
+  "terms": [
+   "plaster figurine",
+   "gypsum figurine",
+   "plaster ornament"
+  ]
+ },
+ "FRA031": {
+  "cat": "Drinking glasses",
+  "terms": [
+   "double wall glass",
+   "glass coffee cup",
+   "double walled glass"
+  ]
+ },
+ "FRA032": {
+  "cat": "Mason jars",
+  "terms": [
+   "mason jar",
+   "glass pickle jar",
+   "preserving jar"
+  ]
+ },
+ "FRA033": {
+  "cat": null,
+  "terms": [
+   "glass candle holder",
+   "glass votive holder",
+   "candle holder glass"
+  ]
+ },
+ "FRA034": {
+  "cat": "Cups and saucers",
+  "terms": [
+   "coffee cup and saucer",
+   "cup and saucer",
+   "tea cup saucer"
+  ]
+ },
+ "FRA035": {
+  "cat": "Bowls (tableware)",
+  "terms": [
+   "ceramic soup bowl",
+   "soup bowl",
+   "porcelain bowl"
+  ]
+ },
+ "FRA036": {
+  "cat": null,
+  "terms": [
+   "soy sauce dish",
+   "small ceramic dish",
+   "sauce dish"
+  ]
+ },
+ "FRA037": {
+  "cat": "Chinese spoons",
+  "terms": [
+   "chinese porcelain spoon",
+   "ceramic spoon",
+   "porcelain soup spoon"
+  ]
+ },
+ "FRA038": {
+  "cat": "Porcelain dolls",
+  "terms": [
+   "porcelain doll",
+   "porcelain figurine doll",
+   "china doll"
+  ]
+ },
+ "FRA039": {
+  "cat": "Plastic cups",
+  "terms": [
+   "plastic cup",
+   "disposable plastic cup",
+   "plastic cups"
+  ]
+ },
+ "FRA040": {
+  "cat": "Egg cartons",
+  "terms": [
+   "egg carton",
+   "egg box",
+   "eggs carton"
+  ]
+ },
+ "FRA041": {
+  "cat": "Chocolate chip cookies",
+  "terms": [
+   "cookies box",
+   "chocolate chip cookies",
+   "cookie jar"
+  ]
+ },
+ "FRA042": {
+  "cat": "Wafers",
+  "terms": [
+   "wafer bars",
+   "vanilla wafers",
+   "wafer snack"
+  ]
+ },
+ "FRA043": {
+  "cat": null,
+  "terms": [
+   "crispy rice snack",
+   "rice crackers",
+   "puffed rice snack"
+  ]
+ },
+ "FRA044": {
+  "cat": null,
+  "terms": [
+   "sachima",
+   "sachima pastry",
+   "chinese sweet snack"
+  ]
+ },
+ "FRA045": {
+  "cat": "Mooncakes",
+  "terms": [
+   "mooncake",
+   "mooncakes",
+   "chinese mooncake"
+  ]
+ },
+ "FRA046": {
+  "cat": null,
+  "terms": [
+   "fried dough twist",
+   "mahua",
+   "chinese fried dough twist"
+  ]
+ },
+ "FRA047": {
+  "cat": null,
+  "terms": [
+   "chinese walnut cookie",
+   "walnut cookies",
+   "hetao su"
+  ]
+ },
+ "FRA048": {
+  "cat": "Pocky",
+  "terms": [
+   "pocky",
+   "pocky sticks",
+   "chocolate biscuit sticks"
+  ]
+ },
+ "FRA049": {
+  "cat": null,
+  "terms": [
+   "rice krispies treat",
+   "puffed rice bar",
+   "rice crispy treats"
+  ]
+ },
+ "FRA050": {
+  "cat": null,
+  "terms": [
+   "hard candy",
+   "mint candies",
+   "hard candies"
+  ]
+ },
+ "FRA051": {
+  "cat": "Salted duck eggs",
+  "terms": [
+   "salted duck egg",
+   "duck eggs",
+   "salted eggs"
+  ]
+ },
+ "FRA052": {
+  "cat": null,
+  "terms": [
+   "dried chili peppers",
+   "dried red chili",
+   "dried chillies"
+  ]
+ },
+ "FRA053": {
+  "cat": "Dried shiitake mushrooms",
+  "terms": [
+   "dried shiitake",
+   "dried shiitake mushrooms",
+   "dried mushrooms"
+  ]
+ },
+ "FRA054": {
+  "cat": "Glass noodles",
+  "terms": [
+   "glass noodles",
+   "bean thread noodles",
+   "vermicelli noodles"
+  ]
+ },
+ "FRA055": {
+  "cat": "Dried flowers",
+  "terms": [
+   "dried flower",
+   "dried flowers",
+   "dried lavender"
+  ]
+ },
+ "FRA056": {
+  "cat": "Eggshells",
+  "terms": [
+   "eggshell",
+   "empty eggshell",
+   "egg shell"
+  ]
+ },
+ "FRA057": {
+  "cat": "Crayons",
+  "terms": [
+   "crayons",
+   "crayon box",
+   "color crayons"
+  ]
+ },
+ "FRA058": {
+  "cat": "Chopstick rests",
+  "terms": [
+   "chopstick rest",
+   "chopsticks rest",
+   "ceramic chopstick rest"
+  ]
+ },
+ "FRA059": {
+  "cat": "Ceramic tiles",
+  "terms": [
+   "ceramic tile",
+   "porcelain tile",
+   "glazed ceramic tile"
+  ]
+ },
+ "FRA060": {
+  "cat": "Glass marbles",
+  "terms": [
+   "glass marbles",
+   "marbles jar",
+   "glass marble"
+  ]
+ },
+ "FRA061": {
+  "cat": null,
+  "terms": [
+   "glass food container",
+   "glass storage jar",
+   "glass jar lid"
+  ]
+ },
+ "FRA062": {
+  "cat": "Glass bowls",
+  "terms": [
+   "glass bowl",
+   "glass bowls",
+   "small glass bowl"
+  ]
+ },
+ "FRA063": {
+  "cat": "Teapots",
+  "terms": [
+   "chinese teapot",
+   "ceramic teapot",
+   "porcelain teapot"
+  ]
+ },
+ "FRA064": {
+  "cat": "Flowerpots",
+  "terms": [
+   "terracotta flower pot",
+   "ceramic flower pot",
+   "flower pot"
+  ]
+ },
+ "FRA065": {
+  "cat": null,
+  "terms": [
+   "ceramic spice jar",
+   "spice jar",
+   "ceramic jar"
+  ]
+ },
+ "FRA066": {
+  "cat": "Milk bottles",
+  "terms": [
+   "glass milk bottle",
+   "milk bottle",
+   "milk bottles"
+  ]
+ },
+ "E008": {
+  "cat": "Jam jars",
+  "terms": [
+   "jam jar",
+   "glass jam jar",
+   "blueberry jam"
+  ]
+ },
+ "E040": {
+  "cat": "Potato chips",
+  "terms": [
+   "potato chip",
+   "single potato chip",
+   "potato chips"
+  ]
+ },
+ "E041": {
+  "cat": "Whisky glasses",
+  "terms": [
+   "whisky glass",
+   "whiskey glass",
+   "old fashioned glass"
+  ]
+ },
+ "E060": {
+  "cat": "Chicken eggs",
+  "terms": [
+   "brown egg",
+   "brown chicken egg",
+   "brown eggs"
+  ]
+ },
+ "E061": {
+  "cat": "Chicken eggs",
+  "terms": [
+   "white egg",
+   "white chicken egg",
+   "white eggs"
+  ]
+ },
+ "E108": {
+  "cat": "Coca-Cola bottles",
+  "terms": [
+   "coca cola bottle",
+   "coke bottle glass",
+   "coca-cola bottle"
+  ]
+ },
+ "E116": {
+  "cat": "Drinking glasses",
+  "terms": [
+   "glass tumbler",
+   "tumbler glass",
+   "drinking glasses"
+  ]
+ },
+ "E117": {
+  "cat": "Margarita glasses",
+  "terms": [
+   "margarita glass",
+   "margarita glasses",
+   "cocktail glass"
+  ]
+ },
+ "E118": {
+  "cat": "Champagne glasses",
+  "terms": [
+   "champagne flute",
+   "champagne glass",
+   "champagne coupe"
+  ]
+ },
+ "E119": {
+  "cat": "Wine glasses",
+  "terms": [
+   "wine glass",
+   "wine glasses",
+   "red wine glasses"
+  ]
+ },
+ "E120": {
+  "cat": "Mugs",
+  "terms": [
+   "ceramic mug",
+   "coffee mug",
+   "mug"
+  ]
+ },
+ "SOF001": {
+  "cat": "Bananas",
+  "terms": [
+   "banana",
+   "bananas",
+   "banana fruit"
+  ]
+ },
+ "SOF002": {
+  "cat": "Oranges",
+  "terms": [
+   "orange fruit",
+   "oranges",
+   "orange"
+  ]
+ },
+ "SOF003": {
+  "cat": "Tomatoes",
+  "terms": [
+   "tomato",
+   "tomatoes",
+   "red tomato"
+  ]
+ },
+ "SOF004": {
+  "cat": "Strawberries",
+  "terms": [
+   "strawberry",
+   "strawberries",
+   "fresh strawberry"
+  ]
+ },
+ "SOF005": {
+  "cat": "Grapes",
+  "terms": [
+   "grapes",
+   "grape bunch",
+   "green grapes"
+  ]
+ },
+ "SOF006": {
+  "cat": "Kiwifruit",
+  "terms": [
+   "kiwifruit",
+   "kiwi fruit",
+   "kiwi"
+  ]
+ },
+ "SOF007": {
+  "cat": "Avocados",
+  "terms": [
+   "avocado",
+   "avocados",
+   "hass avocado"
+  ]
+ },
+ "SOF008": {
+  "cat": "Lemons",
+  "terms": [
+   "lemon",
+   "lemons",
+   "yellow lemon"
+  ]
+ },
+ "SOF009": {
+  "cat": "Cherry tomatoes",
+  "terms": [
+   "cherry tomatoes",
+   "grape tomatoes",
+   "tomato cherry"
+  ]
+ },
+ "SOF010": {
+  "cat": "Peaches",
+  "terms": [
+   "peach fruit",
+   "peaches",
+   "fresh peach"
+  ]
+ },
+ "SOF011": {
+  "cat": "Sweetcorn",
+  "terms": [
+   "sweet corn",
+   "corn cob",
+   "maize cob"
+  ]
+ },
+ "SOF012": {
+  "cat": "Broccoli",
+  "terms": [
+   "broccoli",
+   "broccoli head",
+   "fresh broccoli"
+  ]
+ },
+ "SOF013": {
+  "cat": "Bell peppers",
+  "terms": [
+   "bell pepper",
+   "green pepper",
+   "sweet pepper"
+  ]
+ },
+ "SOF014": {
+  "cat": "Mushrooms",
+  "terms": [
+   "white mushroom",
+   "fresh mushrooms",
+   "edible mushroom"
+  ]
+ },
+ "SOF015": {
+  "cat": "Toast (bread)",
+  "terms": [
+   "toast bread",
+   "sliced bread loaf",
+   "white bread loaf"
+  ]
+ },
+ "SOF016": {
+  "cat": "Bagels",
+  "terms": [
+   "bagel",
+   "bagels",
+   "sesame bagel"
+  ]
+ },
+ "SOF017": {
+  "cat": "Cupcakes",
+  "terms": [
+   "cupcake",
+   "cupcakes",
+   "frosted cupcake"
+  ]
+ },
+ "SOF018": {
+  "cat": "Mantou",
+  "terms": [
+   "mantou",
+   "steamed bun",
+   "chinese steamed bun"
+  ]
+ },
+ "SOF019": {
+  "cat": "Mochi",
+  "terms": [
+   "mochi",
+   "mochi sweets",
+   "japanese mochi"
+  ]
+ },
+ "SOF020": {
+  "cat": "Towels",
+  "terms": [
+   "folded towel",
+   "bath towel",
+   "cotton towel"
+  ]
+ },
+ "SOF023": {
+  "cat": "Teddy bears",
+  "terms": [
+   "teddy bear",
+   "plush toy",
+   "stuffed animal"
+  ]
+ },
+ "SOF024": {
+  "cat": "Cleaning sponges",
+  "terms": [
+   "kitchen sponge",
+   "dishwashing sponge",
+   "cleaning sponge"
+  ]
+ },
+ "SOF030": {
+  "cat": "Marshmallows",
+  "terms": [
+   "marshmallow",
+   "marshmallows",
+   "white marshmallows"
+  ]
+ },
+ "SOF038": {
+  "cat": "Doughnuts",
+  "terms": [
+   "doughnut",
+   "doughnuts",
+   "glazed doughnut"
+  ]
+ },
+ "RIG001": {
+  "cat": "Beverage cans",
+  "terms": [
+   "soda can",
+   "aluminium can",
+   "beverage can"
+  ]
+ },
+ "RIG002": {
+  "cat": "Bottled water",
+  "terms": [
+   "bottled water",
+   "water bottle plastic",
+   "mineral water bottle"
+  ]
+ },
+ "RIG003": {
+  "cat": "Vacuum flasks",
+  "terms": [
+   "thermos flask",
+   "stainless steel thermos",
+   "vacuum flask"
+  ]
+ },
+ "RIG004": {
+  "cat": null,
+  "terms": [
+   "shampoo bottle",
+   "shampoo plastic bottle",
+   "shampoo"
+  ]
+ },
+ "RIG005": {
+  "cat": null,
+  "terms": [
+   "spam can",
+   "canned meat",
+   "luncheon meat can"
+  ]
+ },
+ "RIG006": {
+  "cat": null,
+  "terms": [
+   "coffee tin",
+   "coffee can",
+   "tin can coffee"
+  ]
+ },
+ "RIG007": {
+  "cat": null,
+  "terms": [
+   "tea tin",
+   "tea canister",
+   "tea tin box"
+  ]
+ },
+ "RIG008": {
+  "cat": null,
+  "terms": [
+   "pringles can",
+   "potato chips canister",
+   "chip tube"
+  ]
+ },
+ "RIG009": {
+  "cat": "Milk cartons",
+  "terms": [
+   "milk carton",
+   "milk box",
+   "tetra pak milk"
+  ]
+ },
+ "RIG010": {
+  "cat": "Wrenches",
+  "terms": [
+   "wrench",
+   "adjustable wrench",
+   "spanner tool"
+  ]
+ },
+ "RIG011": {
+  "cat": "Screwdrivers",
+  "terms": [
+   "screwdriver",
+   "screwdrivers",
+   "flat screwdriver"
+  ]
+ },
+ "RIG012": {
+  "cat": "Scissors",
+  "terms": [
+   "scissors",
+   "kitchen scissors",
+   "scissors closed"
+  ]
+ },
+ "RIG013": {
+  "cat": "Adhesive tape",
+  "terms": [
+   "duct tape roll",
+   "tape roll",
+   "adhesive tape"
+  ]
+ },
+ "RIG014": {
+  "cat": "Staplers",
+  "terms": [
+   "stapler",
+   "office stapler",
+   "desk stapler"
+  ]
+ },
+ "RIG015": {
+  "cat": "Smartphones",
+  "terms": [
+   "smartphone",
+   "mobile phone",
+   "cell phone"
+  ]
+ },
+ "RIG016": {
+  "cat": null,
+  "terms": [
+   "power bank",
+   "portable charger",
+   "powerbank"
+  ]
+ },
+ "RIG017": {
+  "cat": "Remote controls",
+  "terms": [
+   "remote control",
+   "tv remote",
+   "remote controller"
+  ]
+ },
+ "RIG018": {
+  "cat": "Computer mice",
+  "terms": [
+   "computer mouse",
+   "pc mouse",
+   "wireless mouse"
+  ]
+ },
+ "RIG019": {
+  "cat": "Paperback books",
+  "terms": [
+   "paperback book",
+   "paperback books",
+   "book cover"
+  ]
+ },
+ "RIG020": {
+  "cat": null,
+  "terms": [
+   "notebook",
+   "hardcover notebook",
+   "spiral notebook"
+  ]
+ },
+ "RIG021": {
+  "cat": "Rubik's Cube",
+  "terms": [
+   "rubik's cube",
+   "rubik cube",
+   "magic cube"
+  ]
+ },
+ "RIG022": {
+  "cat": "Instant noodles",
+  "terms": [
+   "cup noodles",
+   "instant noodle cup",
+   "ramen cup"
+  ]
+ },
+ "RIG023": {
+  "cat": null,
+  "terms": [
+   "coca cola bottle plastic",
+   "cola bottle",
+   "plastic soda bottle"
+  ]
+ },
+ "RIG024": {
+  "cat": null,
+  "terms": [
+   "sports water bottle",
+   "sport bottle",
+   "plastic water bottle"
+  ]
+ },
+ "RIG025": {
+  "cat": "Spray bottles",
+  "terms": [
+   "spray bottle",
+   "trigger sprayer",
+   "spray bottle cleaner"
+  ]
+ },
+ "RIG026": {
+  "cat": null,
+  "terms": [
+   "biscuit tin",
+   "cookie tin",
+   "metal biscuit box"
+  ]
+ },
+ "RIG027": {
+  "cat": null,
+  "terms": [
+   "juice carton",
+   "tetra pak juice",
+   "juice box"
+  ]
+ },
+ "RIG028": {
+  "cat": null,
+  "terms": [
+   "soy milk carton",
+   "soy milk box",
+   "beverage carton"
+  ]
+ },
+ "RIG029": {
+  "cat": "Hammers",
+  "terms": [
+   "hammer",
+   "claw hammer",
+   "hammer tool"
+  ]
+ },
+ "RIG030": {
+  "cat": "Tape measures",
+  "terms": [
+   "tape measure",
+   "measuring tape",
+   "tape measure retractable"
+  ]
+ },
+ "RIG031": {
+  "cat": "Pliers",
+  "terms": [
+   "pliers",
+   "combination pliers",
+   "pincers tool"
+  ]
+ },
+ "RIG032": {
+  "cat": null,
+  "terms": [
+   "utility knife",
+   "box cutter",
+   "craft knife"
+  ]
+ },
+ "RIG033": {
+  "cat": "Calculators",
+  "terms": [
+   "calculator",
+   "pocket calculator",
+   "scientific calculator"
+  ]
+ },
+ "RIG034": {
+  "cat": "Alarm clocks",
+  "terms": [
+   "alarm clock",
+   "digital alarm clock",
+   "bedside clock"
+  ]
+ },
+ "RIG035": {
+  "cat": "Flashlights",
+  "terms": [
+   "flashlight",
+   "torch flashlight",
+   "led torch"
+  ]
+ },
+ "RIG036": {
+  "cat": null,
+  "terms": [
+   "car key",
+   "car keys",
+   "key fob"
+  ]
+ },
+ "RIG037": {
+  "cat": null,
+  "terms": [
+   "external hard drive",
+   "portable hard disk",
+   "usb hard drive"
+  ]
+ },
+ "RIG038": {
+  "cat": "Rulers",
+  "terms": [
+   "ruler",
+   "wooden ruler",
+   "steel ruler"
+  ]
+ },
+ "RIG039": {
+  "cat": null,
+  "terms": [
+   "glue stick",
+   "pritt stick",
+   "adhesive stick"
+  ]
+ },
+ "RIG040": {
+  "cat": "Colored pencils",
+  "terms": [
+   "colored pencils",
+   "color pencil set",
+   "coloured pencils box"
+  ]
+ },
+ "RIG041": {
+  "cat": "Erasers",
+  "terms": [
+   "eraser",
+   "rubber eraser",
+   "paperweight"
+  ]
+ },
+ "RIG042": {
+  "cat": null,
+  "terms": [
+   "pencil sharpener",
+   "sharpener",
+   "blade sharpener"
+  ]
+ },
+ "RIG043": {
+  "cat": null,
+  "terms": [
+   "eyeglass case",
+   "glasses case",
+   "spectacle case"
+  ]
+ },
+ "RIG044": {
+  "cat": null,
+  "terms": [
+   "razor",
+   "safety razor",
+   "shaver"
+  ]
+ },
+ "RIG045": {
+  "cat": null,
+  "terms": [
+   "lip balm",
+   "lipstick tube",
+   "chapstick"
+  ]
+ },
+ "RIG046": {
+  "cat": "AA batteries",
+  "terms": [
+   "aa batteries",
+   "battery aa",
+   "alkaline batteries"
+  ]
+ },
+ "RIG047": {
+  "cat": "Wallets",
+  "terms": [
+   "wallet",
+   "leather wallet",
+   "bifold wallet"
+  ]
+ },
+ "RIG048": {
+  "cat": null,
+  "terms": [
+   "leather belt",
+   "belt rolled",
+   "brown leather belt"
+  ]
+ },
+ "RIG049": {
+  "cat": "Umbrellas",
+  "terms": [
+   "umbrella folded",
+   "folded umbrella",
+   "umbrella"
+  ]
+ },
+ "RIG050": {
+  "cat": null,
+  "terms": [
+   "plastic storage box",
+   "storage container",
+   "plastic box"
+  ]
+ },
+ "RIG051": {
+  "cat": "Dumbbells",
+  "terms": [
+   "dumbbell",
+   "small dumbbell",
+   "hand weight"
+  ]
+ },
+ "RIG052": {
+  "cat": null,
+  "terms": [
+   "food storage container",
+   "plastic food container",
+   "tupperware"
+  ]
+ },
+ "RIG053": {
+  "cat": null,
+  "terms": [
+   "lunch box steel",
+   "steel lunch box",
+   "metal lunch container"
+  ]
+ },
+ "RIG054": {
+  "cat": null,
+  "terms": [
+   "spice bottle",
+   "seasoning bottle",
+   "plastic condiment bottle"
+  ]
+ },
+ "RIG055": {
+  "cat": null,
+  "terms": [
+   "sugar cube box",
+   "sugar cubes",
+   "sugar box"
+  ]
+ },
+ "RIG056": {
+  "cat": null,
+  "terms": [
+   "chocolate box",
+   "chocolate tin",
+   "pralines box"
+  ]
+ },
+ "RIG057": {
+  "cat": "Breakfast cereals",
+  "terms": [
+   "cereal box",
+   "breakfast cereal",
+   "corn flakes box"
+  ]
+ },
+ "RIG058": {
+  "cat": null,
+  "terms": [
+   "canned food",
+   "tin can food",
+   "canned congee"
+  ]
+ },
+ "RIG059": {
+  "cat": null,
+  "terms": [
+   "coffee box",
+   "coffee drip bag",
+   "coffee filter box"
+  ]
+ },
+ "RIG060": {
+  "cat": null,
+  "terms": [
+   "milk powder can",
+   "formula tin",
+   "milk powder tin"
+  ]
+ },
+ "E002": {
+  "cat": "Pringles",
+  "terms": [
+   "pringles can",
+   "pringles chips tube",
+   "pringles potato chips"
+  ]
+ },
+ "E003": {
+  "cat": "Spam (food)",
+  "terms": [
+   "spam canned meat",
+   "spam can",
+   "canned meat spam"
+  ]
+ },
+ "E016": {
+  "cat": "Monster Energy",
+  "terms": [
+   "monster energy drink can",
+   "monster energy can",
+   "energy drink can"
+  ]
+ },
+ "E017": {
+  "cat": "Red Bull",
+  "terms": [
+   "red bull can",
+   "red bull energy drink",
+   "red bull soda can"
+  ]
+ },
+ "E043": {
+  "cat": "7 Up",
+  "terms": [
+   "7up soda can",
+   "seven up can",
+   "lemon lime soda can"
+  ]
+ },
+ "E044": {
+  "cat": "Diet Coke",
+  "terms": [
+   "diet coke can",
+   "coca cola diet can",
+   "diet coke bottle"
+  ]
+ },
+ "E050": {
+  "cat": "Remote controls",
+  "terms": [
+   "tv remote control",
+   "television remote",
+   "remote control handset"
+  ]
+ },
+ "E052": {
+  "cat": "Scotch Tape",
+  "terms": [
+   "scotch tape",
+   "sellotape",
+   "cellophane tape",
+   "sticky tape"
+  ]
+ },
+ "E053": {
+  "cat": null,
+  "terms": [
+   "vegetable peeler",
+   "kitchen peeler",
+   "potato peeler"
+  ]
+ },
+ "E058": {
+  "cat": null,
+  "terms": [
+   "lint roller",
+   "sticky lint roller",
+   "clothes lint remover"
+  ]
+ },
+ "E090": {
+  "cat": null,
+  "terms": [
+   "muffin mix box",
+   "baking mix box",
+   "cake mix box"
+  ]
+ },
+ "E091": {
+  "cat": null,
+  "terms": [
+   "cheez it crackers",
+   "cheese crackers box",
+   "crackers box"
+  ]
+ },
+ "E093": {
+  "cat": null,
+  "terms": [
+   "yellow mustard bottle",
+   "mustard bottle",
+   "french mustard"
+  ]
+ },
+ "E095": {
+  "cat": null,
+  "terms": [
+   "tomato soup can",
+   "canned tomato soup",
+   "condensed tomato soup"
+  ]
+ },
+ "E097": {
+  "cat": "Nutella",
+  "terms": [
+   "nutella jar",
+   "hazelnut spread jar",
+   "nutella jar glass"
+  ]
+ },
+ "E098": {
+  "cat": null,
+  "terms": [
+   "morton salt",
+   "salt container",
+   "table salt canister"
+  ]
+ },
+ "E100": {
+  "cat": null,
+  "terms": [
+   "canned tuna",
+   "tuna can",
+   "starkist tuna"
+  ]
+ },
+ "E101": {
+  "cat": "Duct tape",
+  "terms": [
+   "duct tape roll",
+   "duck tape roll",
+   "grey duct tape"
+  ]
+ },
+ "E107": {
+  "cat": null,
+  "terms": [
+   "shampoo bottle",
+   "head shoulders shampoo",
+   "hair shampoo bottle"
+  ]
+ },
+ "E110": {
+  "cat": "Pocky",
+  "terms": [
+   "pocky box",
+   "pocky snack",
+   "chocolate biscuit sticks box"
+  ]
+ },
+ "E111": {
+  "cat": null,
+  "terms": [
+   "granulated sugar",
+   "sugar bag packaging",
+   "white sugar package"
+  ]
+ },
+ "E112": {
+  "cat": null,
+  "terms": [
+   "swiss roll",
+   "swiss roll cake",
+   "jelly roll",
+   "chocolate cream roll"
+  ]
+ },
+ "E113": {
+  "cat": "Toothpaste",
+  "terms": [
+   "toothpaste box",
+   "toothpaste packaging",
+   "toothpaste carton"
+  ]
+ },
+ "E121": {
+  "cat": null,
+  "terms": [
+   "plastic mug",
+   "plastic cup mug",
+   "plastic coffee mug"
+  ]
+ },
+ "E128": {
+  "cat": "Umbrellas",
+  "terms": [
+   "folded umbrella",
+   "compact umbrella",
+   "foldable umbrella"
+  ]
+ },
+ "E129": {
+  "cat": null,
+  "terms": [
+   "cordless drill",
+   "handheld power drill",
+   "power drill tool"
+  ]
+ },
+ "E009": {
+  "cat": "Limes",
+  "terms": [
+   "lime fruit",
+   "fresh lime",
+   "whole lime"
+  ]
+ },
+ "E020": {
+  "cat": null,
+  "terms": [
+   "roma tomato",
+   "plum tomato",
+   "fresh roma tomatoes"
+  ]
+ },
+ "E022": {
+  "cat": "Grapefruits",
+  "terms": [
+   "grapefruit",
+   "whole grapefruit",
+   "fresh grapefruit"
+  ]
+ },
+ "E023": {
+  "cat": "Lemons",
+  "terms": [
+   "lemon",
+   "whole lemon",
+   "fresh lemons"
+  ]
+ },
+ "E024": {
+  "cat": "Apples",
+  "terms": [
+   "red apple",
+   "whole apple",
+   "fresh apples"
+  ]
+ },
+ "E025": {
+  "cat": "Bell peppers",
+  "terms": [
+   "yellow bell pepper",
+   "bell pepper",
+   "sweet pepper"
+  ]
+ },
+ "E026": {
+  "cat": "Strawberries",
+  "terms": [
+   "strawberry",
+   "fresh strawberries",
+   "whole strawberry"
+  ]
+ },
+ "E027": {
+  "cat": null,
+  "terms": [
+   "cara cara orange",
+   "navel orange",
+   "whole oranges"
+  ]
+ },
+ "E029": {
+  "cat": "Oranges",
+  "terms": [
+   "orange fruit",
+   "whole orange",
+   "fresh oranges"
+  ]
+ },
+ "E030": {
+  "cat": null,
+  "terms": [
+   "mandarin orange",
+   "mandarins",
+   "clementine fruit"
+  ]
+ },
+ "E031": {
+  "cat": "Limes",
+  "terms": [
+   "green lime",
+   "lime citrus",
+   "whole limes"
+  ]
+ },
+ "E032": {
+  "cat": "Grapes",
+  "terms": [
+   "red grapes",
+   "grape bunch",
+   "red globe grapes"
+  ]
+ },
+ "E033": {
+  "cat": "Grapes",
+  "terms": [
+   "red table grapes",
+   "grapes cluster",
+   "red seedless grapes"
+  ]
+ },
+ "E036": {
+  "cat": "Blackberries",
+  "terms": [
+   "blackberry",
+   "fresh blackberries",
+   "whole blackberries"
+  ]
+ },
+ "E039": {
+  "cat": null,
+  "terms": [
+   "oreo",
+   "oreo cookie",
+   "oreo pack",
+   "chocolate sandwich cookie"
+  ]
+ },
+ "E048": {
+  "cat": "Marshmallows",
+  "terms": [
+   "marshmallow",
+   "white marshmallows",
+   "plain marshmallow"
+  ]
+ },
+ "E056": {
+  "cat": "Bananas",
+  "terms": [
+   "banana",
+   "whole banana",
+   "yellow banana fruit"
+  ]
+ },
+ "E064": {
+  "cat": "Pears",
+  "terms": [
+   "green pear",
+   "whole pear",
+   "fresh pear"
+  ]
+ },
+ "E065": {
+  "cat": "Lemons",
+  "terms": [
+   "large lemon",
+   "big lemon",
+   "lemon isolated"
+  ]
+ },
+ "E066": {
+  "cat": null,
+  "terms": [
+   "golden delicious apple",
+   "yellow apple",
+   "golden apple"
+  ]
+ },
+ "E067": {
+  "cat": null,
+  "terms": [
+   "red apple",
+   "fresh red apple",
+   "red delicious apple"
+  ]
+ },
+ "E068": {
+  "cat": null,
+  "terms": [
+   "green apple",
+   "granny smith apple",
+   "fresh green apple"
+  ]
+ },
+ "E073": {
+  "cat": "Strawberries",
+  "terms": [
+   "fresh strawberry",
+   "strawberry fruit",
+   "ripe strawberries"
+  ]
+ },
+ "E074": {
+  "cat": "Strawberries",
+  "terms": [
+   "large strawberry",
+   "big strawberry",
+   "strawberry closeup"
+  ]
+ },
+ "E075": {
+  "cat": null,
+  "terms": [
+   "mandarin oranges",
+   "clementines",
+   "mandarin fruits"
+  ]
+ },
+ "E077": {
+  "cat": "Grapes",
+  "terms": [
+   "green grapes",
+   "white grapes",
+   "green seedless grapes"
+  ]
+ },
+ "E080": {
+  "cat": null,
+  "terms": [
+   "grape tomatoes",
+   "cherry tomatoes",
+   "red grape tomato"
+  ]
+ },
+ "E086": {
+  "cat": "Blueberries",
+  "terms": [
+   "blueberry",
+   "fresh blueberries",
+   "whole blueberries"
+  ]
+ },
+ "E087": {
+  "cat": "Raspberries",
+  "terms": [
+   "raspberry",
+   "fresh raspberries",
+   "whole raspberry"
+  ]
+ },
+ "E122": {
+  "cat": "Marshmallows",
+  "terms": [
+   "large marshmallow",
+   "big marshmallows",
+   "jumbo marshmallow"
+  ]
+ },
+ "FRA067": {
+  "cat": "Ice cream cones",
+  "terms": [
+   "ice cream cone",
+   "wafer cone",
+   "waffle ice cream cone"
+  ]
+ },
+ "FRA068": {
+  "cat": "Gingerbread",
+  "terms": [
+   "gingerbread",
+   "gingerbread cookies",
+   "gingerbread man"
+  ]
+ },
+ "FRA069": {
+  "cat": null,
+  "terms": [
+   "grissini",
+   "italian breadsticks",
+   "bread sticks"
+  ]
+ },
+ "FRA070": {
+  "cat": "Senbei",
+  "terms": [
+   "senbei",
+   "rice crackers",
+   "japanese rice crackers"
+  ]
+ },
+ "FRA071": {
+  "cat": "Peanut brittle",
+  "terms": [
+   "peanut brittle",
+   "brittle candy",
+   "peanut brittle candy"
+  ]
+ },
+ "FRA072": {
+  "cat": "Honeycomb toffee",
+  "terms": [
+   "honeycomb candy",
+   "cinder toffee",
+   "honeycomb toffee"
+  ]
+ },
+ "YCB07": {
+  "cat": null,
+  "terms": [
+   "canned tuna",
+   "tuna can",
+   "tuna fish can"
+  ]
+ },
+ "YCB08": {
+  "cat": null,
+  "terms": [
+   "pudding box",
+   "chocolate pudding snack",
+   "pudding mix box"
+  ]
+ },
+ "YCB10": {
+  "cat": null,
+  "terms": [
+   "potted meat can",
+   "canned meat",
+   "spam can"
+  ]
+ },
+ "YCB13": {
+  "cat": null,
+  "terms": [
+   "peach fruit",
+   "fresh peach",
+   "peaches"
+  ]
+ },
+ "YCB14": {
+  "cat": "Pears",
+  "terms": [
+   "pear fruit",
+   "fresh pear",
+   "pears"
+  ]
+ },
+ "YCB16": {
+  "cat": null,
+  "terms": [
+   "red apple",
+   "apple fruit",
+   "fresh apple"
+  ]
+ },
+ "YCB17": {
+  "cat": null,
+  "terms": [
+   "plums",
+   "plum fruit",
+   "fresh plum"
+  ]
+ },
+ "YCB18": {
+  "cat": "Clamps",
+  "terms": [
+   "metal clamp",
+   "spring clamp",
+   "bar clamp",
+   "clamp tool"
+  ]
+ },
+ "YCB19": {
+  "cat": null,
+  "terms": [
+   "power drill",
+   "cordless drill",
+   "electric drill"
+  ]
+ },
+ "YCB20": {
+  "cat": null,
+  "terms": [
+   "wood block",
+   "wooden block",
+   "wood cube"
+  ]
+ },
+ "YCB21": {
+  "cat": "Scissors",
+  "terms": [
+   "scissors",
+   "kitchen scissors",
+   "sewing scissors"
+  ]
+ }
+}
