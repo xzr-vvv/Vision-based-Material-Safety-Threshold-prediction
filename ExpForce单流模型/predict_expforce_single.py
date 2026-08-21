@@ -18,12 +18,12 @@ from torchvision import transforms
 
 from train_expforce_single import SingleStreamModel, MEAN, STD, IMG_SIZE, DEVICE
 
-MODEL_PATH = r"E:\A-触觉机器学习\ExpForce单流模型\expforce_single_stream.pth"
+MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "expforce_single_stream.pth")
 EXTS = (".png", ".jpg", ".jpeg", ".bmp", ".webp")
 
 
-def load_model():
-    ckpt = torch.load(MODEL_PATH, map_location=DEVICE)
+def load_model(path=MODEL_PATH):
+    ckpt = torch.load(path, map_location=DEVICE)
     classes = ckpt["classes"]
     model = SingleStreamModel(num_classes=len(classes))
     model.load_state_dict(ckpt["model"])

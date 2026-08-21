@@ -9,15 +9,24 @@ paper_*.pdf
 
 # 模型权重（超过 GitHub 100MB 单文件限制）
 *.pth
+*.pth.tar
+*.safetensors
+model_cache/
+.torch_cache/
 
 # IDE 与缓存
 .idea/
 .vscode/
 __pycache__/
 *.pyc
+*.egg-info/
+.cache/
 
 # 大体积压缩包（超过 GitHub 100MB 单文件限制）
 *.zip
+*.tar
+*.tar.gz
+*.7z
 project-tech-report/
 
 # 交付包（数据要求 v1 §5：不入 Git，压缩传输）
@@ -25,7 +34,6 @@ safety_vtla_data_delivery_20260821/
 
 # 骨干权重缓存（.pth/.safetensors 超 100MB 限制，README 已附下载方式）
 dinov3_dual/model_cache/
-*.safetensors
 
 # 第三方下载数据（ycb_rgbd 原始图、cornell，README 已附链接，脚本可重建）
 datasets/ycb_rgbd/test/
@@ -35,3 +43,17 @@ datasets/cornell_grasping/
 # 采集与运行日志
 *.log
 *.err
+
+# SigLIP 嵌入缓存与实验中间产物（可由脚本重建）
+/media/
+features/
+rgb_features/
+*.npz.tmp
+
+# 虚拟环境
+.venv/
+venv/
+
+# 系统文件
+.DS_Store
+Thumbs.db

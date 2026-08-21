@@ -1,118 +1,81 @@
-﻿# 机械臂抓取安全压力范围——触觉数据集合集（v3）
+# SafetyVTLA · A1 视觉先验安全阈值预测
 
+> 输入物体图片 → 输出安全抓力区间 [F_min, F_max]（牛顿）+ 类别（刚体 / 柔性 / 易碎·轻脆 / 易碎·重脆）
+> 供 SafetyVLA 上层策略做 pre-grasp 力度先验；不确定时输出 unknown 并移交触觉后验。
 > 当前主项目代号 **V-MaST**（**V**ision-based **Ma**terial **S**afety **T**hreshold
-> prediction，基于视觉的材料安全阈值预测）——详见「〇·二」节。
+> prediction，基于视觉的材料安全阈值预测）——详见下方「〇·二」节。
 
 来源页面：https://github.com/RLCL-EIT/robotics_arxiv_daily （Tactile / Visuo-Tactile 板块）
 筛选主题：机械臂/夹爪抓取物体时的接触力、抓取压力、安全（不损伤物体）力范围。
 分类：刚体、柔性物体、易碎物品。
 
-v3 修订（2026-08-18）：新增 Exp-Force 真实数据集与单流(RGB)预测模型。
-经可信度评估（见 dataset-credibility-report/），前 6 个数据集的力值均为估计值或仿真值；
-Exp-Force 是目前唯一直接发布"每物体实测真值抓取力"的开源项目，列为首选训练数据。
+**当前状态（2026-08-20）**：A1 阶段 1 已定型 —— **域路由融合架构**，同相机 100% / 跨相机 77% / 跨相机易碎召回 100%（视觉模型时代为 96% / 47% / 0%）。
+
+---
+
+## 快速开始
+
+```bash
+# 环境: conda base + torch 2.10 cu128 (RTX 4090)
+python ExpForce数据集/siglip_retrieval.py --k 9      # 检索式先验 (零训练, 索引自动建)
+python ExpForce单流模型/train_expforce_hier.py \
+    --aug-csv <全类增强CSV> --out hier.pth            # 分层视觉模型 (~8 分钟 GPU)
+python ExpForce数据集/fuse_visual_retrieval.py        # 域路由融合评测
+```
+
+## A1 最终架构（域路由）
+
+```
+                    ┌─ SigLIP-So400m 嵌入（生产复用 π0.5 PaliGemma 视觉塔, 零权重冗余）
+        输入图片 ──┤     ├─ k-NN 检索 Exp-Force 129 物体库 → 类别投票 + 力值回归
+                    │     └─ top-1 相似度 → 域检测器（阈值 0.70）
+                    └─ 分层视觉模型 E（ResNet18）
+                          └─ L1 易碎门控 + L2 细分 + 力(μ,σ) + 质量头
+
+        域路由:  top1 > 0.70 域内 → 视觉×检索等权融合（同相机 100%）
+                top1 ≤ 0.70 域外 → 检索接管（跨相机 77%, 易碎 100%）
+        输出:  类别 + [F_min, F_max] + domain_match + unknown
+```
+
+## 核心结论速览
+
+| 里程碑 | 结果 |
+|---|---|
+| 跨相机易碎 0% 的根因 | 脆性是材料属性，不写在 RGB 纹理里（玻璃 P(易碎) 仅 0.04） |
+| SigLIP 检索（零训练） | 跨相机易碎 0% → **100%**，k=3~9 全鲁棒 |
+| 域检测器 | SigLIP top-1 相似度 0.70 阈值，同/跨相机两组分布零重叠 |
+| 域路由融合 | 两域兼得：**同相机 100% / 跨相机 77%** |
+| 力值语义 | F_min = Exp-Force 实测真值（两指总法向力）；F_max = k·F_min 推算，禁当损伤阈值 |
+
+---
+
+## 目录导览
+
+### 数据
+
+| 目录 | 内容 |
+|---|---|
+| [ExpForce数据集/](ExpForce数据集) | **首选训练数据**（唯一逐物体实测抓力真值，[官网](https://expforcesubmission.github.io/Exp-Force-Website/)）：Franka Panda + FORTE 触觉指夹自适应力控实测"刚好不滑落"最小抓力；129 物体（刚体 61/柔性 57/易碎 11）× D435i 腕部俯拍 RGB；`07_安全抓力范围.csv` 训练标注表；`siglip_retrieval.py` 检索先验；`fuse_visual_retrieval.py` 域路由融合；`eval_cross_camera*.py` 跨相机评测 |
+| [ExpForce单流模型/](ExpForce单流模型) | 训练脚本：`train_expforce_single.py`（三类基线）/ `train_expforce_hier.py`（分层四类）/ `augment_fragile.py`（背景替换增强）；权重不入库，GPU 数分钟可复现 |
+| [数据采集准备/](数据采集准备) | RGB-D 自采清单：三类各 60 候选（易碎优先），首批 90 个约 ¥570 |
+| [图像力预测模型/](图像力预测模型) | 早期合成图模型 + 30 张跨相机实拍测试集（real_images/） |
+
+### 模型
+
+| 目录/文件 | 内容 |
+|---|---|
+| [dinov3_dual/](dinov3_dual) | 双流模型（DINOv3 + Depth Anything V2，骨干全冻结）——阶段 2 激活，深度流任务=空洞率门控/壁厚/质量估计 |
+| 4T 盘 `safetyvtla_A1/` | model_cache（SigLIP 3.3GB）/ augmented（2100 张增强图）/ features（嵌入索引） |
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-〇、推荐快速上手：Exp-Force 数据集 + 单流模型
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-【ExpForce数据集/】Exp-Force（UT Austin, arXiv:2603.08668）
-- 采集：Franka Panda 机械臂 + FORTE 触觉 fin-ray 指夹；自适应力控从 0.25N 起步，
-  检测滑落即收紧，实测每物体"刚好不滑落"最小抓取力 F*，3 次取中位数，取整到 0.25N；
-  129 张 RealSense D435i 腕部相机俯拍真实 RGB 图（640x480 统一规格）。
-- 分类（本仓库整理，07 CSV）：刚体 61 / 柔性 57 / 易碎 11。
-- 文件：
-  - 07_ExpForce_安全抓力范围.csv —— 训练标注表（类别/最小力/最大力，单位 N）
-  - ExpForce_dataset_官方原始.csv —— 官方发布原始表（物体名/质量/实测力）
-  - ExpForce_images/ —— 129 张真实图片
-  - process_expforce.py —— 三类归类的数据处理脚本
-  - eval_cross_camera.py —— 跨相机泛化实测脚本
-- 力值语义（已按 SAFETYVTLA 规范标注，2026-08-19）：论文原文定义 F* = 两指法向接触力之和
-  （"sum of the contact normal forces of two parallel gripper fingers"），即**两指总夹持力**。
-  CSV 保留总力原值（f_min_value，不静默转换），并新增单指换算列
-  f_min_single_finger_N = F_total / 2（规范默认换算规则），两列并存。
-  自采数据必须沿用同一语义标注（force_total_or_single 列）。
-- 最大安全力说明：全球无项目发布逐物体损坏阈值，最大力 = 类别系数 × 实测最小力
-  （易碎×2.0，柔性×3.0，刚体×5.0），取整到 0.25N；来源已在 CSV data_source 列标注。
-  按规范：该上限为工程推算值，禁止当作真实损伤阈值使用。
-- 官网：https://expforcesubmission.github.io/Exp-Force-Website/
-
-【ExpForce单流模型/】单流(RGB) ResNet18 多任务模型（准确优先）
-- 结构：ImageNet 预训练 ResNet18 主干 + 分类头(3类) + 力回归头(min/max 牛顿)。
-- 结果：真实图验证集准确率 88%；力值 MAE 最小力 0.60N / 最大力 2.88N
-  （对比：合成图模型在真实图上仅 20%，域差距已解决）。
-- 训练策略：分层划分 80/20、强增广、冻结→解冻两阶段、余弦退火、标签平滑、早停。
-- 跨相机实测（eval_cross_camera.py）：换相机/换视角准确率降至 50%
-  （刚体 93% / 柔性 10% / 易碎 0%），原因排序：视角差 > 物体分布差 > 相机渲染差；
-  落地需用目标相机图片微调，或复刻俯拍/素色背景/物体占满画面的采集协议。
-- 权重 expforce_single_stream.pth 未入库（见 .gitignore），克隆后运行训练脚本约 5 分钟重训即得。
-- 运行：依赖 torch/torchvision/pillow/numpy（安装到 E:\Lib\site-packages 即可，
-  脚本自动加载）；训练 python train_expforce_single.py；预测 python predict_expforce_single.py 图片或文件夹。
-
-【dataset-credibility-report/】六个候选数据集可信度评估报告（HTML）
-- 结论：6 个数据集的力值均为估计值/仿真值，非直接发布真值；Exp-Force 为唯一实测真值来源。
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-一、硬的刚体（机械臂 × 刚性物体）
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-【01_刚体_RCT】Robot-Collected Touch-Vision-Language Dataset（arXiv:2606.31694, Calandra 组）
-- 采集：机械臂末端装旋转适配器 + 3 个 DIGIT 视觉触觉传感器，按压 122 种工业刚性材料
-  （塑料/橡胶33、纸/纸板45、金属20、纺织10、木竹软木7、工艺4、小件3），每帧记录接触力。
-- 关键价值：力-压深-材料 的标定级对应关系（0.10mm 步进），29,279 帧 + 1,832 条接触序列，
-  是研究"不同刚体材料安全接触力范围"的最直接数据。
-- 已下载：代码仓库 + 论文 + 数据集下载说明.txt（figshare 反爬，9.23GB zip 需浏览器手动下载，
-  直链已写入说明文件）。
-- 数据：https://figshare.com/s/a5ed417ba6602ccad0f6 ；代码：https://github.com/faerber-lab/RCT
-
-【02_刚体_T-Rex】Tactile-Reactive Dexterous Manipulation（arXiv:2606.17055）
-- 采集：双臂机器人 Dexmate Vega-1 + 两只 Sharpa Wave 灵巧手，10 个指尖图像式触觉传感器，
-  200+ 物体（刚体为主，含柔体）、22 种运动原语、5400+ 轨迹（开源约 50 小时）。
-- 关键价值：每个指尖触觉流含 估计的 6 维力/力矩（wrench）+ 形变图，高频（~20Hz 触觉频率），
-  12 项需要精细力控的操作任务。
-- 已下载：完整代码仓库（含硬件栈与 dataset_quickstart）+ 元数据/统计/任务表 + 2 个数据分块
-  parquet（约 137MB，含触觉 wrench 流）+ 资产图 + 论文。
-- 数据：https://huggingface.co/datasets/zekaiwang/trex_dataset （LeRobot v3 格式，data/ 共 3.06GB 可选）
-- 代码：https://github.com/ZhuoyangLiu2005/T-Rex
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-二、柔性物体
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-【03_柔性_Deform360】（ECCV 2026, arXiv:2607.05390）
-- 采集：双臂 UMI 触觉夹爪（4 路 16x32 压力阵列）+ 41 相机，198 个可变形物体（绳/布/线缆等 13 类），
-  1,980 次机械臂交互，215.7 小时。
-- 已下载：001-rope、008-pink-cloth 两物体全部 4 路触觉流（.npy 压力阵列 288 文件）+ 标定 + 代码 + 论文。
-- 数据：https://huggingface.co/datasets/brownu/deform360 （CLI: deform360-download --objects ...）
-
-【04_柔性_SoftVTBench】（arXiv:2607.04234）
-- 采集：Isaac Sim 仿真机械臂 + 夹爪，FEM 柔性物体；显式定义安全交互包络（按物体标定变形阈值 epsilon），
-  分别报告 Goal Success 与 Safety Success；含柔性/刚体对照任务组，1,628 条演示。
-- 已下载：两组装配清单 + epsilon 阈值参数 + 柔性/刚体各 1 条完整演示 HDF5 + 代码 + 论文。
-- 数据：https://huggingface.co/datasets/Arthur12137/SoftVTBench （ModelScope 有国内镜像）
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-三、易碎物品
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-【05_易碎_OopsieVerse】（RSS 2026, arXiv:2606.31993）
-- 采集：RoboCasa/B1K 仿真机械臂，32 个家庭任务（抓鸡蛋、酒杯、盘子、倒水等）；
-  DamageSim 将接触力/温度/液体转化为可量化损伤与健康值。
-- 已下载：全部 54 条安全/不安全遥操作演示 HDF5（330.8MB，含 pick_egg_safe/unsafe）+ 代码 + 论文。
-- 数据：https://huggingface.co/datasets/ut-robin-lab/oopsieverse-demos
-
-【06_易碎_Tabero】（arXiv:2605.27886）
-- 采集：Franka 机械臂 + 触觉夹爪；轻柔指令下握力平均降低 70%+，同时评价任务成功率与握力质量。
-- 已下载：40 个装配演示 HDF5 + 3 条重放演示 + Franka/GelSight Mini 触觉仿真资产（120.8MB）+ 代码 + 论文。
-- 数据：https://huggingface.co/datasets/NathanWu7/Isaaclab_Libero 与 china-sae-robotics/Tactile_Manipulation_Dataset
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-〇·二、V-MaST 自采数据与模型 v2（当前工作重心）
+〇·二、V-MaST 自采数据集与单流模型（当前工作重心）
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 项目代号 **V-MaST**（**V**ision-based **Ma**terial **S**afety **T**hreshold
 prediction，基于视觉的材料安全阈值预测）：以 RGB 视觉先验（DINOv2 特征 +
 PaliGemma VLM 语义检索）预测物体材料类别与抓取安全力阈值（f_min / f_max），
 集成于 π0.5 VLA。数据集：RGB_dataset/（结构见其 README_数据集结构说明.md）。
+（2026-08-20 决策：双流方案废弃，仅建 DINO 单流模型。）
 
 【数据采集准备/】RGB 自采物体清单（2026-08-19）
 - 物体清单.html —— 三类物体各 60 个候选（易碎优先，公开 RGB-D 数据为零），
@@ -121,23 +84,69 @@ PaliGemma VLM 语义检索）预测物体材料类别与抓取安全力阈值（
 - objects_模板.csv —— 180 行预填模板（object_id/family_id/材质/渠道），质量尺寸与
   力值列待实测后填写；family_id 用于训练/测试隔离切分，禁止按图片随机切分。
 
-【SAFETYVTLA_DATA_REQUIREMENTS_V1.md】上级数据采集与交付规范
-- A 级（当前目标）：离线视觉先验——每类 ≥30 物体 × ≥5 图 + 3 次独立力测量；
-  B 级影子模式、C 级真机闭环为后续阶段，未满足前保持 disarmed。
+### 文档（docs/）
 
-【dinov3_dual/】真双流模型（DINOv3 ViT-L RGB 流 + Depth Anything V2 深度流）
-- 双骨干全冻结、只训融合头，专为小样本设计；必须提供相机直出深度图（缺深度即报错，
-  不接受伪深度）；8 个代码文件全链路冒烟测试通过。
+| 文档 | 一句话 |
+|---|---|
+| [A1 实施路径](docs/A1_视觉先验安全阈值上下界预测_实施路径.md) | Exp-Force 实测盘点：只有 RGB+安全阈值 → 单流正确；三要素数据集不存在 |
+| [成熟视觉模型整合方案](docs/成熟视觉模型整合方案_分类体系与端到端架构.md) | 分类体系选型：分层四类（易碎门控+轻脆/重脆+刚体/柔性），不合并刚体柔性 |
+| [增强扩充与分层架构实验报告](docs/增强扩充与分层架构实验报告.md) | 7 组对照（A-G）：背景替换增强同相机 96-100%；易碎偏置增强跨相机召回 60-80% |
+| [易碎物体安全阈值预测专项调研](docs/易碎物体安全阈值预测_专项调研.md) | Tier1 五项目：GraspSense 力图 / V2F 物理残差 / OMRON 可牺牲物 / 草莓实测 |
+| [易碎与刚体视觉区分难题专项调研](docs/易碎与刚体视觉区分难题_专项调研.md) | 根因诊断 + 四条解决路线（物理传感/纯RGB/VLM语义先验/已有信号） |
+| [SigLIP 检索式 A1 先验实验报告](docs/SigLIP检索式A1先验_实验报告.md) | 零训练检索：跨相机易碎 0%→100%，验证 PaliGemma 视觉塔复用可行 |
+| [A1 域路由融合最终实验报告](docs/A1域路由融合_最终实验报告.md) | **A1 定稿**：top-1 域检测器 + 双策略路由，两域兼得 |
 
-【调研报告】rgbd-image-datasets / rgbd-grasp-force-survey / vision-backbone-survey /
-proposal-insights / project-progress-report —— 数据集选型、视觉骨干与抓力调研、进度汇报。
+### 调研报告（HTML）
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-备注
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. RCT 的 9.23GB 数据本体因 figshare 反爬需浏览器手动下载，直链见 01_刚体_RCT\数据集下载说明.txt。
-2. T-Rex 全部 parquet（3.06GB）与视频流未整包下载，按需用 huggingface-cli 拉取 zekaiwang/trex_dataset。
-3. Deform360 全量（数 TB）、OpenTouch 传感器流等大体积原始数据均按子集下载，完整命令见各仓库 README。
-4. 相关但暂不可下载的候选：TacO（未发布）、RoboTacDex（"open-sourced soon"）、V2F（数据未公开）、TacVerse（未确认）。
-5. EgoTactile/OpenTouch 两个人手数据集已按"人抓取不算"的要求移除（2026-08-15）。
-6. 模型权重(*.pth)与压缩包(*.zip)不入库：前者训练脚本 5 分钟可复现，后者超 GitHub 100MB 限制。
+| 报告 | 主题 |
+|---|---|
+| dataset-credibility-report | 六候选数据集可信度评估（结论：力值均为估计/仿真，Exp-Force 唯一真值） |
+| rgbd-image-datasets | RGB-D 图片数据集复检（GraspNet / TransCG / YCB-Video / UW） |
+| rgbd-grasp-force-survey | RGB-D 抓力预测顶会调研（ForceSight / Hoi! / DeliGrasp / V2F） |
+| vision-backbone-survey | 视觉骨干选型（DINOv3 单流首选 / DINOv3+DAv2 双流） |
+| proposal-insights / project-progress-report | 方案洞察与进度汇报 |
+
+### 候选数据集（已盘点归档，详细采集协议见 dataset-credibility-report）
+
+| 类别 | 数据集 | 关键信息 | 状态 |
+|---|---|---|---|
+| 刚体 | RCT（arXiv:2606.31694） | DIGIT×3 按压 122 种工业材料，力-压深标定级对应（0.10mm 步进），29,279 帧 | 代码+论文已下载；9.23GB 数据 figshare 反爬需手动 |
+| 刚体 | T-Rex（arXiv:2606.17055） | 双臂灵巧手 10 指尖触觉，200+ 物体 5400+ 轨迹，~20Hz wrench 流 | 代码+137MB 子集已下载 |
+| 柔性 | Deform360（ECCV 2026） | 198 可变形物（绳/布/缆 13 类），4 路压力阵列+41 相机，215.7h | 2 物体触觉流子集已下载 |
+| 柔性 | SoftVTBench（arXiv:2607.04234） | Isaac Sim FEM 柔性体，显式安全包络（按物体标定变形阈值 ε） | 清单+阈值参数+演示已下载 |
+| 易碎 | OopsieVerse（RSS 2026） | DamageSim 将接触力转化为损伤/健康值，32 个家庭任务（含抓鸡蛋/酒杯） | 54 条演示 HDF5 已下载 |
+| 易碎 | Tabero（arXiv:2605.27886） | Franka+触觉夹爪，轻柔指令下握力降 70%+ | 40 条演示+仿真资产已下载 |
+
+> 可信度评估结论：以上 6 个数据集力值均为估计/仿真值；Exp-Force 是唯一逐物体实测真值来源，故列为首选训练数据。
+
+---
+
+## 力值规范（全链路统一）
+
+- **F_min**：实测真值 = "刚好不滑落"最小两指总法向力，3 次取中位数，0.25N 取整
+- **F_single** = F_total / 2（单指换算列并存，禁止静默转换）
+- **F_max** = k × F_min（易碎 2.0 / 柔性 3.0 / 刚体 5.0）——工程推算值，**禁止当真实损伤阈值**
+- 切分按 object_id / family_id 隔离；增强图只进训练集
+
+## 环境与硬件
+
+- conda base（Python 3.14）+ torch 2.10.0+cu128 + transformers
+- RTX 4090 24GB（sudo 绕沙箱）；SigLIP 索引编码 ~10 秒，分层模型训练 0.3-8 分钟
+- 模型权重 / 大文件不入库；4T 盘存权重缓存与增强图
+
+## 路线图
+
+- [x] 阶段 1：单流 RGB + 域路由检索（**已完成**）
+- [ ] 索引库扩充：TransCG 玻璃物 + 自采柔性物入库（补库外泛化短板）
+- [ ] 阶段 2：自采 RGB-D → 激活深度流（空洞率门控 / 壁厚容许力 / 质量估计）
+- [ ] 阶段 3：易碎破损阈值实测（可牺牲物协议）→ F_max 实测化
+
+---
+
+## 备注
+
+1. RCT 9.23GB 数据本体 figshare 反爬，直链见 `01_刚体_RCT/数据集下载说明.txt`
+2. T-Rex / Deform360 大体积原始数据按需用 huggingface-cli 拉取
+3. 暂不可下载候选：TacO（未发布）、RoboTacDex（soon）、V2F（未公开）
+4. EgoTactile / OpenTouch 已按"人抓取不算"移除（2026-08-15）
+5. 模型权重（*.pth）与压缩包不入库；训练脚本 GPU 数分钟可复现
